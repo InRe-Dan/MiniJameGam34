@@ -39,6 +39,10 @@ folder_colors={
 "res://Player/": "green"
 }
 
+[gui]
+
+theme/custom="res://Assets/theme/main.tres"
+
 [input]
 
 move_up={
@@ -87,3 +91,7 @@ qte_right={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Stage"
 2d_physics/layer_3="Hazard"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

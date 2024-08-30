@@ -1,8 +1,72 @@
-[gd_scene format=3 uid="uid://ycsyg6dew0br"]
+[gd_scene load_steps=12 format=3 uid="uid://ycsyg6dew0br"]
 
-[node name="KeypressPrompt" type="MarginContainer"]
+[ext_resource type="Texture2D" uid="uid://b0m87yexag708" path="res://Assets/keyboard_buttons.png" id="1_8hd4a"]
+[ext_resource type="Script" path="res://Jokes/keypress_prompt.gd" id="1_g8flf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3qbj"]
+atlas = ExtResource("1_8hd4a")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7msn"]
+atlas = ExtResource("1_8hd4a")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbm52"]
+atlas = ExtResource("1_8hd4a")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj3if"]
+atlas = ExtResource("1_8hd4a")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fqlv"]
+atlas = ExtResource("1_8hd4a")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lrlt"]
+atlas = ExtResource("1_8hd4a")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmvsb"]
+atlas = ExtResource("1_8hd4a")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k744b"]
+atlas = ExtResource("1_8hd4a")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtek4"]
+atlas = ExtResource("1_8hd4a")
+region = Rect2(0, 0, 16, 16)
+
+[node name="KeypressPrompt" type="MarginContainer" node_paths=PackedStringArray("template")]
+custom_minimum_size = Vector2(128, 40)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = -431.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_g8flf")
+template = NodePath("HBoxContainer/Template")
+down = SubResource("AtlasTexture_q3qbj")
+down_pressed = SubResource("AtlasTexture_k7msn")
+right = SubResource("AtlasTexture_qbm52")
+right_pressed = SubResource("AtlasTexture_bj3if")
+up = SubResource("AtlasTexture_5fqlv")
+up_pressed = SubResource("AtlasTexture_7lrlt")
+left = SubResource("AtlasTexture_cmvsb")
+left_pressed = SubResource("AtlasTexture_k744b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Template" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_jtek4")
+expand_mode = 4
+stretch_mode = 4
