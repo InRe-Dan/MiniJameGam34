@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=4 format=3 uid="uid://dw5auj6i3fjfj"]
 
+[ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8aus"]
 size = Vector2(720, 24)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_5t87c")
 
 [node name="Player" parent="." instance=ExtResource("1_bg8e3")]
 position = Vector2(360, 400)
@@ -23,3 +25,5 @@ polygon = PackedVector2Array(240, 0, 236.354, -41.676, 225.526, -82.085, 207.846
 [node name="Backstage" type="CollisionShape2D" parent="Stage"]
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_o8aus")
+
+[node name="Hazards" type="Node2D" parent="."]
