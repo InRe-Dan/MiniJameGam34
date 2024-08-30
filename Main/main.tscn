@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw5auj6i3fjfj"]
+
+[ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8aus"]
+size = Vector2(720, 24)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_bg8e3")]
+position = Vector2(360, 400)
+collision_mask = 2
+movement_speed = 120.0
+acceleration = 24.0
+
+[node name="Stage" type="StaticBody2D" parent="."]
+position = Vector2(360, 480)
+collision_layer = 2
+
+[node name="Bounds" type="CollisionPolygon2D" parent="Stage"]
+polygon = PackedVector2Array(240, 0, 236.354, -41.676, 225.526, -82.085, 207.846, -120, 183.851, -154.269, 154.269, -183.851, 120, -207.846, 82.085, -225.526, 41.676, -236.354, 0, -240, -41.676, -236.354, -82.085, -225.526, -120, -207.846, -154.269, -183.851, -183.851, -154.269, -207.846, -120, -225.526, -82.085, -236.354, -41.676, -240, 0, -360, 0, -360, -480, 360, -480, 360, 0)
+
+[node name="Backstage" type="CollisionShape2D" parent="Stage"]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_o8aus")
