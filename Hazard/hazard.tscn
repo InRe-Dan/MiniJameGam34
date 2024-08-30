@@ -9,10 +9,16 @@ size = Vector2(10, 10)
 radius = 5.0
 
 [node name="Hazard" type="Area2D"]
+collision_layer = 4
+monitorable = false
 script = ExtResource("1_rvm33")
+speed = null
+minimum_speed_factor = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_thfl7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_r4v8d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

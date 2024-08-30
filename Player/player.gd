@@ -21,3 +21,8 @@ func _physics_process(delta: float) -> void:
 ## Returns the player's input vector
 func get_input_vector() -> Vector2:
 	return Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down")).normalized()
+	
+
+## Hits the player with the hazard
+func hit() -> void:
+	pass
