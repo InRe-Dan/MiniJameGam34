@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://do8tslxbolws6"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_mquht"]
+
+[resource]
+script = ExtResource("1_mquht")
+setup = "Why don't oysters donate to charity?"
+punchline = "Because they're shellfish!"

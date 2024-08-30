@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://no44m1b481gn"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_wcm4y"]
+
+[resource]
+script = ExtResource("1_wcm4y")
+setup = "What would I do it I controlled rewind?"
+punchline = "I would want Fortnite and Marques Brownlee!"
