@@ -10,8 +10,6 @@ var objective_position : Vector2
 var called_back : bool = false
 var reached_target : bool = false
 
-signal ready_to_despawn
-
 func set_new_objective() -> void:
 	# Reattempt a few times
 	for i in range(5):
@@ -32,7 +30,7 @@ func check_position() -> void:
 	if global_position.distance_squared_to(objective_position) < 100:
 		reached_target = true
 		if called_back:
-			ready_to_despawn.emit()
+			queue_free()
 		get_tree().create_timer(0.5 + randf() * 0.7).timeout.connect(set_new_objective)
 		
 
@@ -62,6 +60,6 @@ func release() -> void:
 	
 ## Tells the spectator to go back to the spawn zone so that he can be despawned
 ## When the spectator reaches the position, ready_to_despawn is emitted
-func call_back(target : Vector2i) -> void:
-	objective_position = target
+func call_back(target_y : float) -> void:
+	objective_position.y = target_y
 	called_back = true

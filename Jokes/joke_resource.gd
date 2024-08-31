@@ -65,5 +65,4 @@ func _generate_sequence() -> Array[Keypress]:
 		while keypress.letters.length() < letters_per_keypress and letters:
 			keypress.letters += letters.pop_front()
 		seq.append(keypress)
-		print(keypress.letters)
 	return seq

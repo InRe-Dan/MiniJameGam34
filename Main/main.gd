@@ -5,14 +5,14 @@ extends Node2D
 @export var passive_satisfaction_increase = 0.01
 @onready var approval_rating : TextureProgressBar = %ApprovalRating
 
-signal satisfaction_changed
+signal satisfaction_changed(new : float)
 
 var satisfaction : float = 1.0:
 	set(x):
 		satisfaction = clamp(x, 0, 1)
 		if approval_rating:
 			approval_rating.target = satisfaction
-		satisfaction_changed.emit()
+		satisfaction_changed.emit(satisfaction)
 
 func _process(delta : float) -> void:
 	satisfaction += delta * passive_satisfaction_increase
