@@ -24,5 +24,5 @@ func get_input_vector() -> Vector2:
 	
 
 ## Hits the player with the hazard
-func hit() -> void:
-	pass
+func hit(impulse: Vector2) -> void:
+	velocity += impulse

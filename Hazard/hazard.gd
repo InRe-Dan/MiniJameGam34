@@ -3,7 +3,7 @@ extends Area2D
 ## Hazard class
 
 @export var speed: float
-@export var damage: float
+@export var force: float
 
 var velocity: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
@@ -24,4 +24,4 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not body is Player: return
 	
-	(body as Player).hit()
+	(body as Player).hit(direction * speed * force * 5)

@@ -12,7 +12,6 @@ radius = 5.0
 collision_layer = 4
 monitorable = false
 script = ExtResource("1_rvm33")
-speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_thfl7")
