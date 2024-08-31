@@ -19,4 +19,4 @@ func _on_joke_system_joke_failed() -> void:
 func _on_joke_system_joke_success() -> void:
 	satisfaction -= 0.1
 func _on_player_got_hit() -> void:
-	satisfaction -= 0.05
+	satisfaction += 0.05
