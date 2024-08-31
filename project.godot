@@ -46,6 +46,10 @@ folder_colors={
 "res://Player/": "green"
 }
 
+[global_group]
+
+main=""
+
 [gui]
 
 theme/custom="res://Assets/theme/main.tres"

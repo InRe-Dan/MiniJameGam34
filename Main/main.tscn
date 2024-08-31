@@ -57,7 +57,7 @@ colors = PackedColorArray(0, 0.886275, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_iaam5"]
 gradient = SubResource("Gradient_wx4ct")
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=["main"]]
 texture_filter = 1
 script = ExtResource("1_5t87c")
 passive_satisfaction_increase = 0.0
@@ -86,8 +86,10 @@ hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0")])
 
 [node name="Hazards" type="Node2D" parent="HazardManager"]
 
-[node name="Audience" type="Node2D" parent="HazardManager"]
+[node name="Audience" type="Node2D" parent="HazardManager" node_paths=PackedStringArray("spawn_y_level")]
+position = Vector2(0, -1)
 script = ExtResource("4_8158h")
+spawn_y_level = NodePath("../../SpawnElevation")
 
 [node name="Collision" type="Node2D" parent="."]
 
@@ -181,6 +183,10 @@ offset_right = 251.0
 offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="SpawnElevation" type="Marker2D" parent="."]
+position = Vector2(360, -49)
+gizmo_extents = 350.0
 
 [connection signal="got_hit" from="Player" to="." method="_on_player_got_hit"]
 [connection signal="joke_failed" from="JokeSystem" to="." method="_on_joke_system_joke_failed"]
