@@ -1,0 +1,145 @@
+[gd_scene load_steps=4 format=3 uid="uid://wbej8ek5ppwq"]
+
+[ext_resource type="Script" path="res://menus/main_menu.gd" id="1_78hgb"]
+[ext_resource type="Texture2D" uid="uid://bluedw7troaw8" path="res://Assets/Pixel_art/guyDemo.png" id="1_y415b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iex4f"]
+atlas = ExtResource("1_y415b")
+region = Rect2(103, 2, 18, 30)
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_78hgb")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 195.0
+offset_right = 231.0
+offset_bottom = 461.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelHeader"
+text = "Title of Game"
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+text = "Start"
+
+[node name="Night2" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+disabled = true
+text = "Night 2"
+
+[node name="Night 3" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+disabled = true
+text = "Night 2"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_iex4f")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_iex4f")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Guide" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+text = "How To Play
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Volume" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+toggle_mode = true
+text = "Volume
+"
+
+[node name="Volumeslider" type="HSlider" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Screenshake" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+toggle_mode = true
+text = "Screenshake
+"
+
+[node name="Screenslider" type="HSlider" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Night2" to="." method="_on_night_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Night 3" to="." method="_on_night_3_pressed"]
+[connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer/Volume" to="." method="_on_volume_toggled"]
+[connection signal="changed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer/Volumeslider" to="." method="_on_volumeslider_changed"]
+[connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer2/Screenshake" to="." method="_on_screenshake_toggled"]
+[connection signal="changed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer2/Screenslider" to="." method="_on_screenslider_changed"]

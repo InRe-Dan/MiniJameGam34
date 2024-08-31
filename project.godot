@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mini Jame Gam #34"
-run/main_scene="res://Main/main.tscn"
+run/main_scene="res://menus/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -44,7 +44,8 @@ folder_colors={
 "res://Hazard/Hazards/": "orange",
 "res://Jokes/": "orange",
 "res://Main/": "teal",
-"res://Player/": "green"
+"res://Player/": "green",
+"res://menus/": "pink"
 }
 
 [global_group]
