@@ -8,7 +8,10 @@ var hazardData: Array[HazardSpawnData] = []
 
 @onready var hazard_container: Node2D = $Hazards
 @onready var audience: Node2D = $Audience
+@onready var effects_container: Node2D = $Effects
 @onready var main : Main = get_tree().get_first_node_in_group("main")
+
+var effects: Array[Status] = []
 
 ## Calculated based on base weight and satisfaction
 ## Hazard value points thrown per second
@@ -41,6 +44,7 @@ func _process(delta: float) -> void:
 func spawn_hazard(hazard: Hazard) -> void:
 	var spectator: Spectator = audience.get_children().pick_random()
 	hazard.spawn_lingering.connect(_on_hazard_deployed, ConnectFlags.CONNECT_DEFERRED)
+	hazard.create_status.connect(_on_effect_created, ConnectFlags.CONNECT_DEFERRED)
 	spectator.prepare_hazard(hazard)
 	time_since_last_hazard = 0.
 	# Between 0.6 and 1.4
@@ -55,6 +59,30 @@ func get_hazard() -> Hazard:
 ## Hazard deployed by spectator
 func _on_hazard_deployed(hazard: Hazard) -> void:
 	hazard_container.add_child(hazard)
+
+
+## Status effect create
+func _on_effect_created(effect: Status) -> void:
+	effects.append(effect)
+	effects_container.add_child(effect)
+	effect.ended.connect(_on_effect_deleted, ConnectFlags.CONNECT_DEFERRED)
+	if effect is SlowTime:
+		Globals.time_slowed = true
+
+
+## Status effect delete
+func _on_effect_deleted(effect: Status) -> void:
+	var last_effect
+	if effect is SlowTime:
+		last_effect = false
+		for e in effects:
+			if e is SlowTime:
+				last_effect = true
+				break
+		if last_effect: Globals.time_slowed = false
+	
+	effects.remove_at(effects.find(effect))
+	effect.queue_free()
 
 
 func _on_main_satisfaction_changed(new: float) -> void:

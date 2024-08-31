@@ -41,6 +41,7 @@ folder_colors={
 "res://Assets/": "gray",
 "res://Hazard/": "red",
 "res://Hazard/Hazards/": "orange",
+"res://Hazard/Powerups/": "green",
 "res://Jokes/": "orange",
 "res://Main/": "teal",
 "res://Player/": "green"

@@ -3,6 +3,7 @@ extends Area2D
 ## Hazard class
 
 signal spawn_lingering(hazard)
+signal create_status(status)
 
 @export var speed: float
 @export var force: float
@@ -10,6 +11,7 @@ signal spawn_lingering(hazard)
 @export var hitstun: float
 @export var lingering_spawn: PackedScene
 @export var lingering: bool
+@export var status_effect: PackedScene
 
 var velocity: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
@@ -23,7 +25,9 @@ func _ready() -> void:
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	position += velocity * delta
+	var mod: float = 1.0
+	if Globals.time_slowed: mod = 0.25
+	position += velocity * delta * mod
 
 
 ## Collided with player
@@ -36,6 +40,9 @@ func _on_body_entered(body: Node2D) -> void:
 		var hazard: Hazard = lingering_spawn.instantiate()
 		hazard.position = position
 		spawn_lingering.emit(hazard)
+	if status_effect:
+		var effect: Status = status_effect.instantiate()
+		create_status.emit(effect)
 	if not lingering: queue_free()
 
 
