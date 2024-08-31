@@ -37,6 +37,7 @@ func hit(impulse: Vector2, satisfaction: float, hitstun: float) -> void:
 
 ## Applies stun
 func stun(stun_duration: float) -> void:
+	if stun_duration == 0: return
 	if stun_timer.is_stopped() or stun_duration > stun_timer.wait_time:
 		stun_timer.stop()
 		stun_timer.wait_time = stun_duration
@@ -46,7 +47,7 @@ func stun(stun_duration: float) -> void:
 
 ## Stun period began
 func _on_stun_start() -> void:
-	speed_mod = 0.5
+	speed_mod = 0.4
 
 
 ## Stun period ended

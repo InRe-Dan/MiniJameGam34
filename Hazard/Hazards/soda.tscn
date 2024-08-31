@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca6r6ki04qi2t"]
+
+[ext_resource type="PackedScene" uid="uid://bcudix53js4vw" path="res://Hazard/hazard.tscn" id="1_dky05"]
+[ext_resource type="PackedScene" uid="uid://cw5pe6117mjgu" path="res://Hazard/Hazards/puddle.tscn" id="2_63uud"]
+
+[node name="Soda" instance=ExtResource("1_dky05")]
+speed = 300.0
+satisfaction = 0.01
+lingering_spawn = ExtResource("2_63uud")

@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 ## Spawns a hazard
 func spawn_hazard(hazard: Hazard) -> void:
 	var spectator: Spectator = audience.get_children().pick_random()
+	hazard.spawn_lingering.connect(_on_hazard_deployed, ConnectFlags.CONNECT_DEFERRED)
 	spectator.prepare_hazard(hazard)
 	time_since_last_hazard = 0.
 	# Between 0.6 and 1.4
