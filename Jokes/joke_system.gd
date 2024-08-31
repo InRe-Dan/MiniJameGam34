@@ -40,5 +40,7 @@ func new_joke() -> void:
 			keypress_prompt_container.remove_child(child)
 		keypress_prompt_container.add_child(joke.make_prompt())
 		joke.success.connect(joke_finished)
+		joke.success.connect(func (): joke_success.emit())
 		joke.fail.connect(joke_finished)
+		joke.fail.connect(func (): joke_failed.emit())
 		dialogue_container.set_joke(joke)

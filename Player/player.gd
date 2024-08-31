@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var movement_speed: float
 @export var acceleration: float
 
+signal got_hit
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,3 +27,4 @@ func get_input_vector() -> Vector2:
 ## Hits the player with the hazard
 func hit(impulse: Vector2) -> void:
 	velocity += impulse
+	got_hit.emit()
