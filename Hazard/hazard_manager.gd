@@ -20,15 +20,13 @@ var frequency_modifier : float = 1.0
 var time_since_last_hazard : float = 0
 
 func recalculate_frequency() -> void:
-	hazard_frequency = (1 - main.satisfaction) + 3
+	hazard_frequency = 10 * (1 - main.satisfaction) + 3
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for data: HazardSpawnData in hazards:
 		hazardData.append(data)
-	
-	for spectator: Node in audience.get_children():
-		spectator.hazard_deployed.connect(_on_hazard_deployed)
+
 	recalculate_frequency()
 
 
@@ -41,6 +39,7 @@ func _process(delta: float) -> void:
 
 ## Spawns a hazard
 func spawn_hazard(hazard: Hazard) -> void:
+	print("Spawned")
 	var spectator: Spectator = audience.get_children().pick_random()
 	spectator.prepare_hazard(hazard)
 	time_since_last_hazard = 0.
@@ -55,6 +54,7 @@ func get_hazard() -> Hazard:
 
 ## Hazard deployed by spectator
 func _on_hazard_deployed(hazard: Hazard) -> void:
+	print(hazard)
 	hazard_container.add_child(hazard)
 
 

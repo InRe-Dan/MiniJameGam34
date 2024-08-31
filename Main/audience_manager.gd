@@ -43,6 +43,7 @@ func create_spectator() -> void:
 		spectator.objective_position = Vector2(randf_range(0, 720), randf_range(0,480))
 		if spectator.objective_position.distance_squared_to(Globals.stage_center) > pow(Globals.stage_radius + Globals.audience_padding, 2.0):
 			break
+	spectator.hazard_deployed.connect(get_parent()._on_hazard_deployed)
 	add_child(spectator)
 
 # Returns the number of audience members that should exist at this point
