@@ -23,3 +23,6 @@ func _on_joke_system_joke_success() -> void:
 	satisfaction -= 0.1
 func _on_player_got_hit() -> void:
 	satisfaction += 0.05
+
+func _on_v_slider_value_changed(value: float) -> void:
+	satisfaction = value

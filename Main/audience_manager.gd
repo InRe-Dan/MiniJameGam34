@@ -2,7 +2,8 @@ class_name AudienceManager extends Node2D
 ## Handles instantiating audience members
 
 @export var spawn_y_level : Marker2D
-@export var audience_amount_tolerance : int = 6
+@export var audience_amount_tolerance : int = 4
+@export var debug_label : Label
 
 @onready var spectator_scene: PackedScene = preload("res://Hazard/spectator.tscn")
 @onready var main : Main = get_tree().get_first_node_in_group("main")
@@ -11,6 +12,14 @@ class_name AudienceManager extends Node2D
 func _ready() -> void:
 	for i in range(calculate_target_audience_members(1.0)):
 		create_spectator()
+
+func _process(delta : float) -> void:
+	if not debug_label:
+		return
+	debug_label.text = ""
+	debug_label.text += "Current children         : " + str(get_child_count())
+	debug_label.text += "\nCurrent goal             : " + str(calculate_target_audience_members(main.satisfaction))
+	debug_label.text += "\nCurrent uncalled children: " + str(count_valid_children())
 
 func generate_random_spawn_position() -> Vector2:
 	var vec : Vector2
