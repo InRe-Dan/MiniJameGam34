@@ -17,3 +17,8 @@ texture = SubResource("PlaceholderTexture2D_05lvi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kxrer")
+
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_end"]

@@ -42,14 +42,14 @@ func _process(delta : float) -> void:
 ## Create a hazard
 func prepare_hazard(hazard: Hazard) -> void:
 	queue.append(hazard)
-	print("preparing ", hazard)
+	#print("preparing ", hazard)
 	# Start animation if not already playing
 	# TODO: REPLACE
 	release()
 
 ## Animation finished
 func release() -> void:
-	print("ready to release")
+	#print("ready to release")
 	if queue.size() == 0: 
 		return
 	
@@ -57,7 +57,6 @@ func release() -> void:
 	var hazard: Hazard = queue.pop_front()
 	
 	hazard.position = position
-	print("emitting")
 	hazard_deployed.emit(hazard)
 	
 ## Tells the spectator to go back to the spawn zone so that he can be despawned
