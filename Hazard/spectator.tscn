@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bllvgnlk03rvh"]
+
+[ext_resource type="Script" path="res://Hazard/spectator.gd" id="1_6wfni"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h7ius"]
+size = Vector2(16, 16)
+
+[node name="Spectator" type="Node2D"]
+script = ExtResource("1_6wfni")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_h7ius")

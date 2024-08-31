@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=10 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
+[ext_resource type="Script" path="res://Hazard/hazard_manager.gd" id="3_lubpb"]
 [ext_resource type="Script" path="res://Jokes/joke_system.gd" id="3_wbmed"]
+[ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
+[ext_resource type="Script" path="res://Hazard/hazard_spawn_data.gd" id="4_o1nxd"]
+[ext_resource type="PackedScene" uid="uid://bko632gtiaj3s" path="res://Hazard/Hazards/tomato.tscn" id="5_l85j4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8aus"]
 size = Vector2(720, 24)
+
+[sub_resource type="Resource" id="Resource_wi5i0"]
+script = ExtResource("4_o1nxd")
+hazard = ExtResource("5_l85j4")
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -28,7 +36,15 @@ polygon = PackedVector2Array(240, 0, 236.354, -41.676, 225.526, -82.085, 207.846
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_o8aus")
 
-[node name="Hazards" type="Node2D" parent="."]
+[node name="HazardManager" type="Node2D" parent="."]
+script = ExtResource("3_lubpb")
+global_spawn_weight = 1.2
+hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0")])
+
+[node name="Hazards" type="Node2D" parent="HazardManager"]
+
+[node name="Audience" type="Node2D" parent="HazardManager"]
+script = ExtResource("4_8158h")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -57,8 +73,6 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-
-[node name="Audience" type="Node2D" parent="."]
 
 [node name="JokeSystem" type="Node" parent="."]
 script = ExtResource("3_wbmed")
