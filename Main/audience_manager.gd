@@ -5,13 +5,14 @@ class_name AudienceManager extends Node2D
 @export var audience_amount_tolerance : int = 4
 @export var debug_label : Label
 
-@onready var spectator_scene: PackedScene = preload("res://Hazard/spectator.tscn")
+@onready var spectator_scene: PackedScene = preload("res://Hazard/spectators/spectator.tscn")
 @onready var main : Main = get_tree().get_first_node_in_group("main")
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(calculate_target_audience_members(1.0)):
 		create_spectator()
+	
 
 func _process(delta : float) -> void:
 	if not debug_label:

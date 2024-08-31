@@ -3,12 +3,21 @@ class_name Spectator extends CharacterBody2D
 
 @onready var eyesight : ShapeCast2D = $Shapecast
 
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+var colours : ColorPalette = preload("res://Hazard/spectators/palette.tres")
+
 signal hazard_deployed(hazard)
 
 var queue: Array[Hazard]
 var objective_position : Vector2
 var called_back : bool = false
 var reached_target : bool = false
+
+func _ready() -> void:
+	sprite.material = sprite.material.duplicate()
+	var scheme : ColorScheme = colours.palette.pick_random()
+	(sprite.material as ShaderMaterial).set_shader_parameter("main", scheme.main)
+	(sprite.material as ShaderMaterial).set_shader_parameter("accent", scheme.accent)
 
 func set_new_objective() -> void:
 	# Reattempt a few times

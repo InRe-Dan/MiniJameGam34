@@ -61,7 +61,7 @@ focus_mode = 0
 disabled = true
 text = "Night 2"
 
-[node name="Night 3" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="Night3" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
@@ -138,7 +138,7 @@ value = 50.0
 
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Night2" to="." method="_on_night_2_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Night 3" to="." method="_on_night_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Night3" to="." method="_on_night_3_pressed"]
 [connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer/Volume" to="." method="_on_volume_toggled"]
 [connection signal="changed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer/Volumeslider" to="." method="_on_volumeslider_changed"]
 [connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer2/Screenshake" to="." method="_on_screenshake_toggled"]

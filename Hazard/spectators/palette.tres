@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ColorPalette" load_steps=6 format=3 uid="uid://867re7606t16"]
+
+[ext_resource type="Script" path="res://Hazard/spectators/color.gd" id="1_eott7"]
+[ext_resource type="Script" path="res://Hazard/spectators/colors.gd" id="1_i0cno"]
+
+[sub_resource type="Resource" id="Resource_uiewn"]
+script = ExtResource("1_eott7")
+main = Color(0.635294, 0, 0, 1)
+accent = Color(0.458824, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_atdum"]
+script = ExtResource("1_eott7")
+main = Color(0, 0, 0.537255, 1)
+accent = Color(0, 0, 0.239216, 1)
+
+[sub_resource type="Resource" id="Resource_armws"]
+script = ExtResource("1_eott7")
+main = Color(1, 0.556863, 0, 1)
+accent = Color(0.67451, 0.337255, 0, 1)
+
+[resource]
+script = ExtResource("1_i0cno")
+palette = Array[ExtResource("1_eott7")]([SubResource("Resource_uiewn"), SubResource("Resource_atdum"), SubResource("Resource_armws")])
