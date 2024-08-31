@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=27 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
 [ext_resource type="Script" path="res://Hazard/hazard_spawn_data.gd" id="4_o1nxd"]
 [ext_resource type="PackedScene" uid="uid://bko632gtiaj3s" path="res://Hazard/Hazards/tomato.tscn" id="5_l85j4"]
+[ext_resource type="PackedScene" uid="uid://cn6cudnyv88qp" path="res://Hazard/Hazards/chair.tscn" id="6_na7sg"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
+[ext_resource type="PackedScene" uid="uid://ca6r6ki04qi2t" path="res://Hazard/Hazards/soda.tscn" id="7_qpxy0"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
 
 [sub_resource type="Gradient" id="Gradient_4vja1"]
@@ -31,6 +33,14 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="Resource" id="Resource_wi5i0"]
 script = ExtResource("4_o1nxd")
 hazard = ExtResource("5_l85j4")
+
+[sub_resource type="Resource" id="Resource_fbii7"]
+script = ExtResource("4_o1nxd")
+hazard = ExtResource("6_na7sg")
+
+[sub_resource type="Resource" id="Resource_h0wcy"]
+script = ExtResource("4_o1nxd")
+hazard = ExtResource("7_qpxy0")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mip7o"]
 normal = Vector2(1, 0)
@@ -68,7 +78,7 @@ scale = Vector2(12.75, 9.84375)
 texture = SubResource("GradientTexture2D_syp3o")
 
 [node name="PlaceholderStage" type="Sprite2D" parent="."]
-position = Vector2(361, 352)
+position = Vector2(361, 312)
 texture = SubResource("GradientTexture2D_wc5b8")
 region_enabled = true
 region_rect = Rect2(0, 0, 512, 256)
@@ -76,12 +86,12 @@ region_rect = Rect2(0, 0, 512, 256)
 [node name="Player" parent="." instance=ExtResource("1_bg8e3")]
 position = Vector2(360, 400)
 collision_mask = 34
-movement_speed = 120.0
+movement_speed = 140.0
 acceleration = 24.0
 
 [node name="HazardManager" type="Node2D" parent="."]
 script = ExtResource("3_lubpb")
-hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0")])
+hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0"), SubResource("Resource_fbii7"), SubResource("Resource_h0wcy")])
 
 [node name="Hazards" type="Node2D" parent="HazardManager"]
 
@@ -109,7 +119,7 @@ position = Vector2(360, -122)
 shape = SubResource("WorldBoundaryShape2D_0helb")
 
 [node name="BottomWall" type="CollisionShape2D" parent="Collision/WorldBounds"]
-position = Vector2(358, 483)
+position = Vector2(358, 440)
 shape = SubResource("WorldBoundaryShape2D_ybwdi")
 
 [node name="Stage" type="StaticBody2D" parent="Collision"]
@@ -117,6 +127,7 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision/Stage"]
+position = Vector2(0, -40)
 polygon = PackedVector2Array(121, 478, 135, 402, 168, 336, 231, 278, 294, 249, 362, 241, 427, 251, 485, 277, 534, 317, 574, 374, 594, 438, 600, 530, 119, 529, 122, 510, 122, 510)
 
 [node name="SpectatorArea" type="StaticBody2D" parent="Collision"]
@@ -125,6 +136,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="Bounds" type="CollisionPolygon2D" parent="Collision/SpectatorArea"]
+position = Vector2(0, -40)
 polygon = PackedVector2Array(240, 0, 236.354, -41.676, 225.526, -82.085, 207.846, -120, 183.851, -154.269, 154.269, -183.851, 120, -207.846, 82.085, -225.526, 41.676, -236.354, 0, -240, -41.676, -236.354, -82.085, -225.526, -120, -207.846, -154.269, -183.851, -183.851, -154.269, -207.846, -120, -225.526, -82.085, -236.354, -41.676, -240, 0, -360, 0, -360, -480, 360, -480, 360, 0)
 
 [node name="Control" type="Control" parent="."]
@@ -178,9 +190,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -249.0
-offset_top = -54.0
+offset_top = -40.0
 offset_right = 251.0
-offset_bottom = -12.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 

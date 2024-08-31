@@ -18,7 +18,7 @@ func _ready() -> void:
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	velocity = velocity.lerp(get_input_vector() * movement_speed * speed_mod, delta * acceleration)
+	velocity = velocity.lerp(get_input_vector() * movement_speed * speed_mod, delta * acceleration * pow(speed_mod, 2.0))
 	
 	move_and_slide()
 	
@@ -37,16 +37,17 @@ func hit(impulse: Vector2, satisfaction: float, hitstun: float) -> void:
 
 ## Applies stun
 func stun(stun_duration: float) -> void:
+	if stun_duration == 0: return
 	if stun_timer.is_stopped() or stun_duration > stun_timer.wait_time:
 		stun_timer.stop()
 		stun_timer.wait_time = stun_duration
 		stun_timer.start()
 		_on_stun_start()
-	
+
 
 ## Stun period began
 func _on_stun_start() -> void:
-	speed_mod = 0.5
+	speed_mod = 0.4
 
 
 ## Stun period ended
