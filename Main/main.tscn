@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=18 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -7,6 +7,14 @@
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
 [ext_resource type="Script" path="res://Hazard/hazard_spawn_data.gd" id="4_o1nxd"]
 [ext_resource type="PackedScene" uid="uid://bko632gtiaj3s" path="res://Hazard/Hazards/tomato.tscn" id="5_l85j4"]
+[ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
+
+[sub_resource type="Gradient" id="Gradient_4vja1"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_syp3o"]
+gradient = SubResource("Gradient_4vja1")
 
 [sub_resource type="Gradient" id="Gradient_1mcgo"]
 offsets = PackedFloat32Array(0, 0.654676, 0.66187)
@@ -38,8 +46,13 @@ normal = Vector2(0, 1)
 texture_filter = 1
 script = ExtResource("1_5t87c")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(376, 283)
+scale = Vector2(12.75, 9.84375)
+texture = SubResource("GradientTexture2D_syp3o")
+
 [node name="PlaceholderStage" type="Sprite2D" parent="."]
-position = Vector2(361, 351)
+position = Vector2(361, 352)
 texture = SubResource("GradientTexture2D_wc5b8")
 region_enabled = true
 region_rect = Rect2(0, 0, 512, 256)
@@ -88,15 +101,6 @@ stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
 
-[node name="JokeSystem" type="Node" parent="."]
-script = ExtResource("3_wbmed")
-
-[node name="PromptContainer" type="CenterContainer" parent="JokeSystem"]
-offset_left = 214.0
-offset_top = 437.0
-offset_right = 508.0
-offset_bottom = 479.0
-
 [node name="Collision" type="Node2D" parent="."]
 
 [node name="WorldBounds" type="StaticBody2D" parent="Collision"]
@@ -132,3 +136,25 @@ collision_mask = 0
 
 [node name="Bounds" type="CollisionPolygon2D" parent="Collision/SpectatorArea"]
 polygon = PackedVector2Array(240, 0, 236.354, -41.676, 225.526, -82.085, 207.846, -120, 183.851, -154.269, 154.269, -183.851, 120, -207.846, 82.085, -225.526, 41.676, -236.354, 0, -240, -41.676, -236.354, -82.085, -225.526, -120, -207.846, -154.269, -183.851, -183.851, -154.269, -207.846, -120, -225.526, -82.085, -236.354, -41.676, -240, 0, -360, 0, -360, -480, 360, -480, 360, 0)
+
+[node name="JokeSystem" type="Node" parent="." node_paths=PackedStringArray("keypress_prompt_container", "dialogue_container")]
+script = ExtResource("3_wbmed")
+keypress_prompt_container = NodePath("PromptContainer")
+dialogue_container = NodePath("DialogueContainer")
+
+[node name="DialogueContainer" parent="JokeSystem" instance=ExtResource("8_mh3dp")]
+offset_left = -1.0
+offset_bottom = -384.0
+
+[node name="PromptContainer" type="CenterContainer" parent="JokeSystem"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -249.0
+offset_top = -54.0
+offset_right = 251.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0

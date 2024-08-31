@@ -4,7 +4,7 @@ class_name JokeResource extends Resource
 class Keypress:
 	var complete : bool = false
 	var dir : Direction
-	var words : Array[String]
+	var letters : String
 
 enum Direction {UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3}
 
@@ -15,6 +15,8 @@ signal fail
 signal success
 signal progress
 
+# True if the joke has succeeded or failed (i.e. no longer catching input)
+var terminated : bool = false
 ## Input sequence of this joke.
 var sequence : Array[Keypress]:
 	get:
@@ -36,10 +38,12 @@ func give_input(dir : Direction) -> void:
 		current.complete = true
 		progress.emit()
 		if current == sequence.back():
+			terminated = true
 			success.emit()
 	else:
 		for keypress : Keypress in sequence:
 			keypress.complete = false
+		terminated = true
 		fail.emit()
 
 # Makes a control node linked to this one which can keep track of player inputs
@@ -50,18 +54,16 @@ func make_prompt() -> KeypressPrompt:
 
 # Private method only called once. Do not call manually.
 func _generate_sequence() -> Array[Keypress]:
-	print("New joke =============")
 	assert(setup)
 	assert(punchline)
 	var seq : Array[Keypress]
-	var words : Array = Array(setup.split(" "))
-	while words:
+	var letters : Array = setup.split()
+	var letters_per_keypress = ceil(1 / Globals.joke_difficulty)
+	while letters:
 		var keypress : Keypress = Keypress.new()
 		keypress.dir = Direction.values().pick_random()
-		var words_to_use : int = ceil(1 / Globals.joke_difficulty)
-		while words and words_to_use > 0:
-			words_to_use -= 1
-			keypress.words.append(words.pop_front())
+		while keypress.letters.length() < letters_per_keypress and letters:
+			keypress.letters += letters.pop_front()
 		seq.append(keypress)
-		print(Direction.keys()[keypress.dir], keypress.words)
+		print(keypress.letters)
 	return seq

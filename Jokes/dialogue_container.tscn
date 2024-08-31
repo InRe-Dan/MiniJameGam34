@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://clt5oswt5gxrq"]
+
+[ext_resource type="Script" path="res://Jokes/dialogue_container.gd" id="1_qr6hl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tnk6f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fclo0"]
+
+[node name="DialogueContainer" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qr6hl")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="Setup" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Here's where the joke is gonna be!"
+label_settings = SubResource("LabelSettings_tnk6f")
+
+[node name="Punchline" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Here's where the punchline is gonna be!"
+label_settings = SubResource("LabelSettings_fclo0")
