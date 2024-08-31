@@ -2,6 +2,8 @@ class_name Main
 extends Node2D
 ## Main game handler
 
+@export var scene_center : Marker2D
+
 @export var passive_satisfaction_increase = 0.01
 @onready var approval_rating : TextureProgressBar = %ApprovalRating
 

@@ -13,7 +13,7 @@ var direction: Vector2 = Vector2.ZERO
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	direction = position.direction_to(Globals.stage_center)
+	direction = position.direction_to(get_tree().get_first_node_in_group("main").scene_center.global_position)
 	velocity = direction * speed
 
 

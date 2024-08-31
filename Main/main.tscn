@@ -57,9 +57,10 @@ colors = PackedColorArray(0, 0.886275, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_iaam5"]
 gradient = SubResource("Gradient_wx4ct")
 
-[node name="Main" type="Node2D" groups=["main"]]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("scene_center") groups=["main"]]
 texture_filter = 1
 script = ExtResource("1_5t87c")
+scene_center = NodePath("StageCenter")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(376, 283)
@@ -204,6 +205,10 @@ focus_mode = 0
 max_value = 1.0
 step = 0.0
 value = 1.0
+
+[node name="StageCenter" type="Marker2D" parent="."]
+position = Vector2(359, 481)
+gizmo_extents = 240.0
 
 [connection signal="satisfaction_changed" from="." to="HazardManager" method="_on_main_satisfaction_changed"]
 [connection signal="satisfaction_changed" from="." to="HazardManager/Audience" method="_on_main_satisfaction_changed"]
