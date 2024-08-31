@@ -24,7 +24,8 @@ Globals="*res://Globals.gd"
 window/size/viewport_width=720
 window/size/viewport_height=480
 window/size/mode=2
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
 
 [dotnet]
@@ -109,3 +110,5 @@ qte_right={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
