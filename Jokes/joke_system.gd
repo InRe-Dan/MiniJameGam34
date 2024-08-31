@@ -13,8 +13,8 @@ func _ready() -> void:
 # demo function
 func new_joke() -> void:
 	joke = jokes.pick_random().duplicate()
-	for child in $CenterContainer.get_children():
-		$CenterContainer.remove_child(child)
-	$CenterContainer.add_child(joke.make_prompt())
+	for child in $PromptContainer.get_children():
+		$PromptContainer.remove_child(child)
+	$PromptContainer.add_child(joke.make_prompt())
 	joke.success.connect(new_joke)
 	joke.fail.connect(new_joke)
