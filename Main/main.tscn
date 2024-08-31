@@ -200,6 +200,7 @@ offset_left = 637.0
 offset_top = 300.0
 offset_right = 653.0
 offset_bottom = 400.0
+focus_mode = 0
 max_value = 1.0
 step = 0.0
 value = 1.0
