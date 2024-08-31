@@ -10,7 +10,7 @@ var hazardData: Array[HazardSpawnData] = []
 @onready var audience: Node2D = $Audience
 @onready var main : Main = get_tree().get_first_node_in_group("main")
 
-## Calculated based on base weight and satisfaction 
+## Calculated based on base weight and satisfaction
 ## Hazard value points thrown per second
 ## (Later on we might have hazards with higher values to make them cost more)
 var hazard_frequency : int = 1

@@ -42,7 +42,7 @@ func stun(stun_duration: float) -> void:
 		stun_timer.wait_time = stun_duration
 		stun_timer.start()
 		_on_stun_start()
-	
+
 
 ## Stun period began
 func _on_stun_start() -> void:

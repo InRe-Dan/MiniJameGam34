@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=25 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
 [ext_resource type="Script" path="res://Hazard/hazard_spawn_data.gd" id="4_o1nxd"]
 [ext_resource type="PackedScene" uid="uid://bko632gtiaj3s" path="res://Hazard/Hazards/tomato.tscn" id="5_l85j4"]
+[ext_resource type="PackedScene" uid="uid://cn6cudnyv88qp" path="res://Hazard/Hazards/chair.tscn" id="6_na7sg"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
 
@@ -31,6 +32,10 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="Resource" id="Resource_wi5i0"]
 script = ExtResource("4_o1nxd")
 hazard = ExtResource("5_l85j4")
+
+[sub_resource type="Resource" id="Resource_fbii7"]
+script = ExtResource("4_o1nxd")
+hazard = ExtResource("6_na7sg")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mip7o"]
 normal = Vector2(1, 0)
@@ -67,7 +72,7 @@ scale = Vector2(12.75, 9.84375)
 texture = SubResource("GradientTexture2D_syp3o")
 
 [node name="PlaceholderStage" type="Sprite2D" parent="."]
-position = Vector2(361, 352)
+position = Vector2(361, 312)
 texture = SubResource("GradientTexture2D_wc5b8")
 region_enabled = true
 region_rect = Rect2(0, 0, 512, 256)
@@ -80,7 +85,7 @@ acceleration = 24.0
 
 [node name="HazardManager" type="Node2D" parent="."]
 script = ExtResource("3_lubpb")
-hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0")])
+hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0"), SubResource("Resource_fbii7")])
 
 [node name="Hazards" type="Node2D" parent="HazardManager"]
 
@@ -108,7 +113,7 @@ position = Vector2(360, -122)
 shape = SubResource("WorldBoundaryShape2D_0helb")
 
 [node name="BottomWall" type="CollisionShape2D" parent="Collision/WorldBounds"]
-position = Vector2(358, 483)
+position = Vector2(358, 440)
 shape = SubResource("WorldBoundaryShape2D_ybwdi")
 
 [node name="Stage" type="StaticBody2D" parent="Collision"]
@@ -177,9 +182,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -249.0
-offset_top = -54.0
+offset_top = -40.0
 offset_right = 251.0
-offset_bottom = -12.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 

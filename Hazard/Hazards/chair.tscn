@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn6cudnyv88qp"]
+
+[ext_resource type="PackedScene" uid="uid://bcudix53js4vw" path="res://Hazard/hazard.tscn" id="1_tokcb"]
+
+[node name="Chair" instance=ExtResource("1_tokcb")]
+speed = 150.0
+force = 2.4
+hitstun = 1.4
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.36, 0.21, 0, 1)
