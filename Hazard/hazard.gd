@@ -31,7 +31,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body is Player: return
 	
 	if lingering: direction = body.position.direction_to(position)
-	(body as Player).hit(direction * force * 1000, satisfaction, hitstun)
+	(body as Player).hit(direction * force * 200, satisfaction, hitstun)
 	if lingering_spawn:
 		var hazard: Hazard = lingering_spawn.instantiate()
 		hazard.position = position

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bcudix53js4vw" path="res://Hazard/hazard.tscn" id="1_g0dmh"]
 
 [node name="Puddle" instance=ExtResource("1_g0dmh")]
-force = 3.0
+force = 2.4
 hitstun = 1.6
 lingering = true
 

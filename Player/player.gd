@@ -18,7 +18,7 @@ func _ready() -> void:
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	velocity = velocity.lerp(get_input_vector() * movement_speed * speed_mod, delta * acceleration)
+	velocity = velocity.lerp(get_input_vector() * movement_speed * speed_mod, delta * acceleration * pow(speed_mod, 2.0))
 	
 	move_and_slide()
 	

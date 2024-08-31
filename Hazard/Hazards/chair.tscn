@@ -4,7 +4,7 @@
 
 [node name="Chair" instance=ExtResource("1_tokcb")]
 speed = 150.0
-force = 2.4
+force = 2.0
 hitstun = 1.4
 
 [node name="Sprite2D" parent="." index="0"]
