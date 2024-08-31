@@ -7,6 +7,7 @@ extends Node2D
 
 signal satisfaction_changed(new : float)
 
+var difficulty: float = 1.0
 var satisfaction : float = 1.0:
 	set(x):
 		satisfaction = clamp(x, 0, 1)
@@ -15,14 +16,14 @@ var satisfaction : float = 1.0:
 		satisfaction_changed.emit(satisfaction)
 
 func _process(delta : float) -> void:
-	satisfaction += delta * passive_satisfaction_increase
+	satisfaction += delta * passive_satisfaction_increase * difficulty
 
 func _on_joke_system_joke_failed() -> void:
-	satisfaction += 0.05
+	satisfaction += 0.05 * difficulty
 func _on_joke_system_joke_success() -> void:
 	satisfaction -= 0.1
-func _on_player_got_hit() -> void:
-	satisfaction += 0.05
+func _on_player_got_hit(satisfaction_change: float) -> void:
+	satisfaction += satisfaction_change
 
 func _on_v_slider_value_changed(value: float) -> void:
 	satisfaction = value

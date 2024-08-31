@@ -4,6 +4,7 @@ extends Area2D
 
 @export var speed: float
 @export var force: float
+@export var satisfaction: float
 
 var velocity: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
@@ -24,5 +25,5 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not body is Player: return
 	
-	(body as Player).hit(direction * speed * force * 5)
+	(body as Player).hit(direction * speed * force * 5, satisfaction)
 	queue_free()

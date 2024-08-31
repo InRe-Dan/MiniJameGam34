@@ -4,5 +4,6 @@
 
 [node name="Tomato" instance=ExtResource("1_n2gfx")]
 modulate = Color(1, 0, 0, 1)
-speed = 240.0
-force = 1.0
+speed = 215.0
+force = 0.8
+satisfaction = 0.01
