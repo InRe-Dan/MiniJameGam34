@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1evb6sdurnq"]
+
+[ext_resource type="Script" path="res://Player/StatusEffects/slow_time.gd" id="1_7wdyy"]
+
+[node name="SlowTime" type="Node2D"]
+script = ExtResource("1_7wdyy")
+duration = 5.0

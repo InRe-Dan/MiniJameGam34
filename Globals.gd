@@ -7,3 +7,5 @@ const audience_padding: float = 16.0
 const spectator_placement_max_attempts: int = 8
 ## Number of QTE keypresses required per character in a joke
 const joke_difficulty : float = 0.1
+
+var time_slowed: bool = false

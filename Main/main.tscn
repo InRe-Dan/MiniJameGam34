@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=29 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bko632gtiaj3s" path="res://Hazard/Hazards/tomato.tscn" id="5_l85j4"]
 [ext_resource type="PackedScene" path="res://Hazard/Hazards/chair.tscn" id="6_na7sg"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
-[ext_resource type="PackedScene" path="res://Hazard/Hazards/soda.tscn" id="7_qpxy0"]
+[ext_resource type="PackedScene" uid="uid://ca6r6ki04qi2t" path="res://Hazard/Hazards/soda.tscn" id="7_qpxy0"]
+[ext_resource type="PackedScene" uid="uid://dbm4gk525hsx1" path="res://Hazard/Powerups/clock.tscn" id="8_klmir"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
 
 [sub_resource type="Gradient" id="Gradient_4vja1"]
@@ -41,6 +42,10 @@ hazard = ExtResource("6_na7sg")
 [sub_resource type="Resource" id="Resource_h0wcy"]
 script = ExtResource("4_o1nxd")
 hazard = ExtResource("7_qpxy0")
+
+[sub_resource type="Resource" id="Resource_8d36d"]
+script = ExtResource("4_o1nxd")
+hazard = ExtResource("8_klmir")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mip7o"]
 normal = Vector2(1, 0)
@@ -91,7 +96,7 @@ acceleration = 24.0
 
 [node name="HazardManager" type="Node2D" parent="."]
 script = ExtResource("3_lubpb")
-hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0"), SubResource("Resource_fbii7"), SubResource("Resource_h0wcy")])
+hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0"), SubResource("Resource_fbii7"), SubResource("Resource_h0wcy"), SubResource("Resource_8d36d")])
 
 [node name="Hazards" type="Node2D" parent="HazardManager"]
 
@@ -100,6 +105,9 @@ position = Vector2(0, -1)
 script = ExtResource("4_8158h")
 spawn_y_level = NodePath("../../SpawnElevation")
 debug_label = NodePath("../../DebugLabel")
+
+[node name="Effects" type="Node2D" parent="HazardManager"]
+visible = false
 
 [node name="Collision" type="Node2D" parent="."]
 
