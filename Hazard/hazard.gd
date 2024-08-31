@@ -25,3 +25,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body is Player: return
 	
 	(body as Player).hit(direction * speed * force * 5)
+	queue_free()
