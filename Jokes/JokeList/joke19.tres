@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://bokndrtrykrdc"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_fjxj2"]
+
+[resource]
+script = ExtResource("1_fjxj2")
+setup = "Why does the ghost love the elevator?"
+punchline = "It lifts its spirit!"

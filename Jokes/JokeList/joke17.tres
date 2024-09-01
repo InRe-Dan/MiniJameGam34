@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://cvhqcykq5lbjk"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_323t1"]
+
+[resource]
+script = ExtResource("1_323t1")
+setup = "What's the leading cause of dry skin?"
+punchline = "Towels!"

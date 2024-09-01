@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://bkxs0bopdemmm"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_3t3nb"]
+
+[resource]
+script = ExtResource("1_3t3nb")
+setup = "What do you call a fake noodle?"
+punchline = "An im-pasta!"
