@@ -2,6 +2,7 @@ class_name JokeSystem extends Node
 
 var jokes : Array[JokeResource]
 var joke : JokeResource
+var prompt : KeypressPrompt
 @export var keypress_prompt_container : CenterContainer
 @export var dialogue_container : DialogueContainer
 
@@ -20,6 +21,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("qte_up"):
 		joke.give_input(JokeResource.Direction.UP)
 
+func get_key_texture() -> Texture2D:
+	return prompt.get_key_texture()
 
 func _ready() -> void:
 	var dir : DirAccess = DirAccess.open("res://Jokes/JokeList/")
@@ -41,7 +44,8 @@ func new_joke() -> void:
 		joke = jokes.pick_random().duplicate()
 		for child in keypress_prompt_container.get_children():
 			keypress_prompt_container.remove_child(child)
-		keypress_prompt_container.add_child(joke.make_prompt())
+		prompt = joke.make_prompt()
+		keypress_prompt_container.add_child(prompt)
 		joke.success.connect(make_player_say_punchline)
 		joke.success.connect(func (x): joke_success.emit())
 		joke.fail.connect(func (x): joke_failed.emit())

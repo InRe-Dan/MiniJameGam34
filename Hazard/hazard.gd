@@ -56,7 +56,6 @@ func _on_body_entered(body: Node2D) -> void:
 		create_status.emit(effect)
 	if not lingering: queue_free()
 
-
 ## Lifetime ended (bruh)
 func _on_lifetime_timeout() -> void:
 	queue_free()

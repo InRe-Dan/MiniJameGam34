@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c757dhd4hepca"]
+[gd_scene load_steps=7 format=3 uid="uid://c757dhd4hepca"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_pobeb"]
 [ext_resource type="PackedScene" uid="uid://diblmhw3qf4io" path="res://Hazard/spectators/speech.tscn" id="2_ewcjg"]
+[ext_resource type="Texture2D" uid="uid://b0m87yexag708" path="res://Assets/keyboard_buttons.png" id="3_csl8f"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_05lvi"]
 size = Vector2(20, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kxrer"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fcb2"]
+atlas = ExtResource("3_csl8f")
+region = Rect2(0, 0, 16, 16)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
@@ -24,5 +29,11 @@ one_shot = true
 
 [node name="Speech" parent="." instance=ExtResource("2_ewcjg")]
 position = Vector2(12, -10)
+
+[node name="Key" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.619608)
+position = Vector2(1, 34)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_4fcb2")
 
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_end"]
