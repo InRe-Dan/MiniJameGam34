@@ -13,12 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://ca6r6ki04qi2t" path="res://Hazard/Hazards/soda.tscn" id="7_qpxy0"]
 [ext_resource type="PackedScene" uid="uid://dbm4gk525hsx1" path="res://Hazard/Powerups/clock.tscn" id="8_klmir"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
-[ext_resource type="AudioStream" uid="uid://cwhw5bdw1apxm" path="res://Sounds/Red in the darkproto.mp3" id="13_udagc"]
-[ext_resource type="AudioStream" uid="uid://bm6y5rnf3u5es" path="res://Sounds/brass1.mp3" id="14_32kh8"]
-[ext_resource type="AudioStream" uid="uid://bik4n3saccjs1" path="res://Sounds/brass2.mp3" id="15_iw7sy"]
-[ext_resource type="AudioStream" uid="uid://cajpe4nj7b66h" path="res://Sounds/brass3.mp3" id="16_wsep6"]
-[ext_resource type="AudioStream" uid="uid://da7skyi3dl1yw" path="res://Sounds/brass4..mp3" id="17_xqbg0"]
-[ext_resource type="AudioStream" uid="uid://ds5r3gvp308om" path="res://Sounds/brass5.mp3" id="18_3nqah"]
+[ext_resource type="AudioStream" uid="uid://cwhw5bdw1apxm" path="res://Assets/Audio/Red in the darkproto.mp3" id="13_udagc"]
+[ext_resource type="AudioStream" uid="uid://bm6y5rnf3u5es" path="res://Assets/Audio/brass1.mp3" id="14_32kh8"]
+[ext_resource type="AudioStream" uid="uid://bik4n3saccjs1" path="res://Assets/Audio/brass2.mp3" id="15_iw7sy"]
+[ext_resource type="AudioStream" uid="uid://cajpe4nj7b66h" path="res://Assets/Audio/brass3.mp3" id="16_wsep6"]
+[ext_resource type="AudioStream" uid="uid://da7skyi3dl1yw" path="res://Assets/Audio/brass4..mp3" id="17_xqbg0"]
+[ext_resource type="AudioStream" uid="uid://ds5r3gvp308om" path="res://Assets/Audio/brass5.mp3" id="18_3nqah"]
 
 [sub_resource type="Gradient" id="Gradient_4vja1"]
 offsets = PackedFloat32Array(0)
@@ -72,6 +72,7 @@ gradient = SubResource("Gradient_wx4ct")
 texture_filter = 1
 script = ExtResource("1_5t87c")
 scene_center = NodePath("StageCenter")
+success_audio = Array[AudioStream]([ExtResource("14_32kh8"), ExtResource("15_iw7sy"), ExtResource("16_wsep6"), ExtResource("17_xqbg0"), ExtResource("18_3nqah")])
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -20
@@ -251,24 +252,11 @@ gizmo_extents = 240.0
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("13_udagc")
+volume_db = -2.0
 autoplay = true
 
-[node name="Soundbytes" type="Node2D" parent="Audio"]
-
-[node name="Brass1" type="AudioStreamPlayer" parent="Audio/Soundbytes"]
-stream = ExtResource("14_32kh8")
-
-[node name="Brass2" type="AudioStreamPlayer" parent="Audio/Soundbytes"]
-stream = ExtResource("15_iw7sy")
-
-[node name="Brass3" type="AudioStreamPlayer" parent="Audio/Soundbytes"]
-stream = ExtResource("16_wsep6")
-
-[node name="Brass4" type="AudioStreamPlayer" parent="Audio/Soundbytes"]
-stream = ExtResource("17_xqbg0")
-
-[node name="Brass5" type="AudioStreamPlayer" parent="Audio/Soundbytes"]
-stream = ExtResource("18_3nqah")
+[node name="SuccessSound" type="AudioStreamPlayer" parent="Audio"]
+volume_db = -8.0
 
 [connection signal="satisfaction_changed" from="." to="HazardManager" method="_on_main_satisfaction_changed"]
 [connection signal="satisfaction_changed" from="." to="HazardManager/Audience" method="_on_main_satisfaction_changed"]
