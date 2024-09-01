@@ -163,6 +163,7 @@ text = "Fullscreen
 
 [node name="1x" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -174,6 +175,7 @@ text = "1x"
 
 [node name="2x" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -184,6 +186,7 @@ text = "2x"
 
 [node name="3x" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -191,6 +194,14 @@ focus_mode = 0
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ny88f")
 text = "3x"
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "<--- Recommended! --"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
