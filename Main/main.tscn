@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=28 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
+[ext_resource type="Texture2D" uid="uid://di2tdg70wmxu5" path="res://Assets/Pixel_art/Stage_192x80.png" id="2_sxipl"]
 [ext_resource type="Script" path="res://Hazard/hazard_manager.gd" id="3_lubpb"]
 [ext_resource type="Script" path="res://Jokes/joke_system.gd" id="3_wbmed"]
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
@@ -19,17 +20,6 @@ colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_syp3o"]
 gradient = SubResource("Gradient_4vja1")
-
-[sub_resource type="Gradient" id="Gradient_1mcgo"]
-offsets = PackedFloat32Array(0, 0.654676, 0.66187)
-colors = PackedColorArray(0.12, 0.09192, 0.0576, 1, 0.11, 0.08426, 0.0528, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wc5b8"]
-gradient = SubResource("Gradient_1mcgo")
-width = 512
-height = 512
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Resource" id="Resource_wi5i0"]
 script = ExtResource("4_o1nxd")
@@ -83,18 +73,19 @@ position = Vector2(376, 283)
 scale = Vector2(12.75, 9.84375)
 texture = SubResource("GradientTexture2D_syp3o")
 
-[node name="PlaceholderStage" type="Sprite2D" parent="."]
+[node name="Stage" type="Sprite2D" parent="."]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -10
-position = Vector2(361, 312)
-texture = SubResource("GradientTexture2D_wc5b8")
-region_enabled = true
+position = Vector2(361, 340)
+scale = Vector2(3, 3)
+texture = ExtResource("2_sxipl")
 region_rect = Rect2(0, 0, 512, 256)
 
 [node name="Player" parent="." instance=ExtResource("1_bg8e3")]
 position = Vector2(360, 400)
 collision_mask = 34
-movement_speed = 140.0
-acceleration = 24.0
+movement_speed = 160.0
+acceleration = 28.0
 
 [node name="HazardManager" type="Node2D" parent="."]
 script = ExtResource("3_lubpb")
@@ -129,27 +120,30 @@ position = Vector2(360, -122)
 shape = SubResource("WorldBoundaryShape2D_0helb")
 
 [node name="BottomWall" type="CollisionShape2D" parent="Collision/WorldBounds"]
-position = Vector2(358, 440)
+position = Vector2(358, 460)
 shape = SubResource("WorldBoundaryShape2D_ybwdi")
 
 [node name="Stage" type="StaticBody2D" parent="Collision"]
+position = Vector2(360, 500)
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision/Stage"]
 position = Vector2(0, -40)
-polygon = PackedVector2Array(121, 478, 135, 402, 168, 336, 231, 278, 294, 249, 362, 241, 427, 251, 485, 277, 534, 317, 574, 374, 594, 438, 600, 530, 119, 529, 122, 510, 122, 510)
+polygon = PackedVector2Array(-280, 0, 280, 0, 280, -130, 260, -160, 200, -195, 80, -225, -80, -225, -200, -195, -260, -160, -280, -130)
 
 [node name="SpectatorArea" type="StaticBody2D" parent="Collision"]
-position = Vector2(360, 480)
+position = Vector2(360, 500)
 collision_layer = 2
 collision_mask = 0
 
 [node name="Bounds" type="CollisionPolygon2D" parent="Collision/SpectatorArea"]
 position = Vector2(0, -40)
-polygon = PackedVector2Array(240, 0, 236.354, -41.676, 225.526, -82.085, 207.846, -120, 183.851, -154.269, 154.269, -183.851, 120, -207.846, 82.085, -225.526, 41.676, -236.354, 0, -240, -41.676, -236.354, -82.085, -225.526, -120, -207.846, -154.269, -183.851, -183.851, -154.269, -207.846, -120, -225.526, -82.085, -236.354, -41.676, -240, 0, -360, 0, -360, -480, 360, -480, 360, 0)
+build_mode = 1
+polygon = PackedVector2Array(-280, 0, 280, 0, 280, -130, 260, -160, 200, -195, 80, -225, -80, -225, -200, -195, -260, -160, -280, -130)
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,6 +212,7 @@ offset_bottom = 209.0
 text = "Debug text"
 
 [node name="VSlider" type="VSlider" parent="."]
+visible = false
 custom_minimum_size = Vector2(0, 100)
 offset_left = 637.0
 offset_top = 300.0
