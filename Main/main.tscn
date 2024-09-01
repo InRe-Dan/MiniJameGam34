@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=36 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cgxuv7ek172to" path="res://Assets/Audio/sfx/hitclarinet.ogg" id="15_y86i5"]
 [ext_resource type="AudioStream" uid="uid://bl7ivclb6opf1" path="res://Assets/Audio/sfx/clickclown.ogg" id="16_5pxs3"]
 [ext_resource type="AudioStream" uid="uid://biwebv3emdh5r" path="res://Assets/Audio/sfx/textscrollclown.ogg" id="16_bfagw"]
-[ext_resource type="AudioStream" uid="uid://cklks1ptk2a4l" path="res://Assets/Audio/The Clown.mp3" id="16_ditl7"]
+[ext_resource type="AudioStream" uid="uid://cklks1ptk2a4l" path="res://Assets/Audio/The Clown.mp3" id="19_ujp2a"]
 [ext_resource type="Script" path="res://Main/camera.gd" id="20_1uaoi"]
 
 [sub_resource type="Gradient" id="Gradient_4vja1"]
@@ -180,11 +180,6 @@ gizmo_extents = 240.0
 
 [node name="Audio" type="Node2D" parent="."]
 
-[node name="MainTheme" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("11_i2owt")
-volume_db = -2.0
-autoplay = true
-
 [node name="SuccessSound" type="AudioStreamPlayer" parent="Audio"]
 volume_db = -8.0
 
@@ -292,6 +287,10 @@ position = Vector2(360, 270)
 
 [node name="Camera2D" type="Camera2D" parent="Anchor" groups=["camera"]]
 script = ExtResource("20_1uaoi")
+
+[node name="MainTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_ujp2a")
+autoplay = true
 
 [connection signal="satisfaction_changed" from="." to="HazardManager" method="_on_main_satisfaction_changed"]
 [connection signal="satisfaction_changed" from="." to="HazardManager/Audience" method="_on_main_satisfaction_changed"]
