@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://bllvgnlk03rvh"]
 
 [ext_resource type="Script" path="res://Hazard/spectators/spectator.gd" id="1_6wfni"]
-[ext_resource type="Texture2D" uid="uid://bluedw7troaw8" path="res://Assets/Pixel_art/guyDemo.png" id="2_0b4by"]
 [ext_resource type="Shader" path="res://Hazard/spectators/spectator.gdshader" id="2_sxp2u"]
 [ext_resource type="Texture2D" uid="uid://cufifwyefdlic" path="res://Assets/Pixel_art/animations.png" id="3_ar73g"]
 [ext_resource type="PackedScene" uid="uid://diblmhw3qf4io" path="res://Hazard/spectators/speech.tscn" id="4_abpmd"]
+[ext_resource type="Texture2D" uid="uid://datbeknv2lb5j" path="res://Assets/Pixel_art/walk-Sheet.png" id="4_ugi24"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7uuij"]
 radius = 12.0
@@ -40,13 +40,13 @@ region = Rect2(80, 160, 40, 40)
 atlas = ExtResource("3_ar73g")
 region = Rect2(120, 160, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m300q"]
-atlas = ExtResource("2_0b4by")
-region = Rect2(128, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb6ps"]
+atlas = ExtResource("4_ugi24")
+region = Rect2(40, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8u3v"]
-atlas = ExtResource("2_0b4by")
-region = Rect2(160, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qnkc"]
+atlas = ExtResource("4_ugi24")
+region = Rect2(80, 0, 40, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n1hrr"]
 animations = [{
@@ -77,14 +77,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m300q")
+"texture": SubResource("AtlasTexture_cb6ps")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g8u3v")
+"texture": SubResource("AtlasTexture_8qnkc")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="Spectator" type="CharacterBody2D"]
@@ -106,7 +106,7 @@ collision_mask = 61
 material = SubResource("ShaderMaterial_7h6x2")
 position = Vector2(1, -5)
 sprite_frames = SubResource("SpriteFrames_n1hrr")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="Debug" type="Label" parent="."]

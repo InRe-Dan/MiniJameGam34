@@ -108,17 +108,20 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="Buttons" type="HBoxContainer" parent="CenterContainer/MarginContainer/Menu/VBox"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
 
 [node name="Next" type="Button" parent="CenterContainer/MarginContainer/Menu/VBox/Buttons"]
+visible = false
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Next Night"
 
 [node name="Control" type="Control" parent="CenterContainer/MarginContainer/Menu/VBox/Buttons"]
+visible = false
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -126,6 +129,7 @@ size_flags_horizontal = 4
 [node name="Main Menu" type="Button" parent="CenterContainer/MarginContainer/Menu/VBox/Buttons"]
 custom_minimum_size = Vector2(125, 35)
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Main Menu
 "
