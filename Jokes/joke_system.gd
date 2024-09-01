@@ -56,4 +56,8 @@ func new_joke() -> void:
 		dialogue_container.set_joke(joke)
 		joke.success.connect(joke_finished)
 		joke.fail.connect(joke_finished)
-		joke.progress.connect($Progress.play)
+		joke.progress.connect(play_progress_audio)
+
+
+func play_progress_audio(throwout) -> void:
+	$Progress.play()

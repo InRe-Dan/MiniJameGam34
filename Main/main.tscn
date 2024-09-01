@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=29 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -169,7 +169,7 @@ gizmo_extents = 240.0
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("11_i2owt")
+stream = ExtResource("16_ditl7")
 volume_db = -2.0
 autoplay = true
 
