@@ -53,7 +53,7 @@ custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
-text = "Start"
+text = "Night 1"
 
 [node name="Night2" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
 unique_name_in_owner = true
@@ -71,7 +71,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
 disabled = true
-text = "Night 2"
+text = "Night 3"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3"]
 layout_mode = 2
