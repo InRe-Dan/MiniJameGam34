@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c757dhd4hepca"]
+[gd_scene load_steps=17 format=3 uid="uid://c757dhd4hepca"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_pobeb"]
 [ext_resource type="Texture2D" uid="uid://cufifwyefdlic" path="res://Assets/Pixel_art/animations.png" id="2_71031"]

@@ -169,7 +169,7 @@ gizmo_extents = 240.0
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("16_ditl7")
+stream = ExtResource("19_ujp2a")
 volume_db = -2.0
 autoplay = true
 
