@@ -53,7 +53,7 @@ stream_1/stream = ExtResource("5_r7q75")
 stream_2/stream = ExtResource("6_gccwl")
 
 [sub_resource type="Gradient" id="Gradient_71mxe"]
-offsets = PackedFloat32Array(0.122302, 0.201439, 0.597122)
+offsets = PackedFloat32Array(0.0454545, 0.162338, 0.623377)
 colors = PackedColorArray(0.93, 0.93, 0.93, 1, 0.61, 0.61, 0.61, 1, 0.55, 0.55, 0.55, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8mafe"]
@@ -95,7 +95,9 @@ stream = SubResource("AudioStreamRandomizer_jh5ia")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(2.86102e-06, 9.53674e-07)
 scale = Vector2(4, 4)
+energy = 2.52
 texture = SubResource("GradientTexture2D_8mafe")
+texture_scale = 0.8
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2

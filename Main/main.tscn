@@ -65,15 +65,15 @@ region = Rect2(0, 0, 18, 18)
 atlas = ExtResource("8_od55v")
 region = Rect2(0, 0, 18, 18)
 
-[sub_resource type="Gradient" id="Gradient_qkjch"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.37, 0.37, 0.37, 1)
+[sub_resource type="Gradient" id="Gradient_rwn58"]
+offsets = PackedFloat32Array(0, 0.980519)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xxwpp"]
-gradient = SubResource("Gradient_qkjch")
-fill = 1
-fill_from = Vector2(0.513761, 0.825688)
-fill_to = Vector2(0.899083, 0.266055)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dyssu"]
+gradient = SubResource("Gradient_rwn58")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("scene_center") groups=["main"]]
 texture_filter = 1
@@ -311,12 +311,13 @@ position = Vector2(360, 270)
 script = ExtResource("20_1uaoi")
 
 [node name="Dark CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.26, 0.26, 0.26, 1)
+color = Color(0.051971, 0.051971, 0.0519709, 1)
 
 [node name="Light" type="PointLight2D" parent="."]
 position = Vector2(378, 285)
 scale = Vector2(12.7813, 9.6875)
-texture = SubResource("GradientTexture2D_xxwpp")
+energy = 0.46
+texture = SubResource("GradientTexture2D_dyssu")
 
 [connection signal="satisfaction_changed" from="." to="HazardManager" method="_on_main_satisfaction_changed"]
 [connection signal="satisfaction_changed" from="." to="HazardManager/Audience" method="_on_main_satisfaction_changed"]
