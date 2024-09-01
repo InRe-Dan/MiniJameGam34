@@ -20,6 +20,7 @@ func _ready() -> void:
 	(sprite.material as ShaderMaterial).set_shader_parameter("accent", scheme.accent)
 
 func set_new_objective() -> void:
+	if called_back: return
 	# Reattempt a few times
 	for i in range(5):
 		eyesight.target_position = Vector2.from_angle(randf() * TAU) * 100
@@ -44,7 +45,14 @@ func check_position() -> void:
 		
 
 func _process(delta : float) -> void:
-	velocity = global_position.direction_to(objective_position) * 50
+	if not reached_target:
+		velocity = global_position.direction_to(objective_position) * 50
+		if velocity.x > 0:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
+	else:
+		velocity = Vector2.ZERO
 	check_position()
 	move_and_slide()
 

@@ -23,9 +23,9 @@ Globals="*res://Globals.gd"
 
 window/size/viewport_width=720
 window/size/viewport_height=540
-window/size/mode=2
+window/size/window_width_override=1080
+window/size/window_height_override=810
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
 
 [dotnet]
@@ -52,6 +52,7 @@ folder_colors={
 [global_group]
 
 main=""
+player=""
 
 [gui]
 

@@ -15,11 +15,18 @@ signal create_status(status)
 
 var velocity: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
+var target : Vector2
 
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	direction = position.direction_to(get_tree().get_first_node_in_group("main").scene_center.global_position)
+	var scene_center : Marker2D = get_tree().get_first_node_in_group("main").scene_center
+	if randf() < Globals.hazard_accuracy:
+		target = get_tree().get_first_node_in_group("player").global_position + Vector2.from_angle(randf() * TAU) * Globals.player_radius
+	else:
+		target.y = scene_center.global_position.y
+		target.x = scene_center.global_position.x + randf_range(-1, 1) * scene_center.gizmo_extents
+	direction = position.direction_to(target)
 	velocity = direction * speed
 	rotation = randf() * 2 * PI
 

@@ -152,7 +152,6 @@ build_mode = 1
 polygon = PackedVector2Array(-280, 0, 280, 0, 280, -130, 260, -160, 200, -195, 80, -225, -80, -225, -200, -195, -260, -160, -280, -130)
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,7 +232,6 @@ offset_bottom = 209.0
 text = "Debug text"
 
 [node name="VSlider" type="VSlider" parent="."]
-visible = false
 custom_minimum_size = Vector2(0, 100)
 offset_left = 637.0
 offset_top = 300.0

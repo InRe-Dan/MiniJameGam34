@@ -8,17 +8,23 @@ extends Control
 @onready var screen_button : Button = %Screenshake
 @onready var screen_slider : HSlider = %Screenslider
 
+func _ready() -> void:
+	if Globals.level_reached > 1:
+		level2.disabled = false
+	if Globals.level_reached > 2:
+		level3.disabled = false
 
 func _on_start_pressed() -> void:
+	Globals.setup_level_1()
 	get_tree().change_scene_to_file("res://Main/main.tscn")
 
 
 func _on_night_2_pressed() -> void:
-	# TODO set values in Globals
+	Globals.setup_level_2()
 	get_tree().change_scene_to_file("res://Main/main.tscn")
 
 func _on_night_3_pressed() -> void:
-	# TODO set values in Globals
+	Globals.setup_level_3()
 	get_tree().change_scene_to_file("res://Main/main.tscn")
 
 func _on_volumeslider_changed() -> void:

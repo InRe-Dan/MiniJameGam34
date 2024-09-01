@@ -8,8 +8,8 @@
 radius = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sk16m"]
-radius = 15.0
-height = 35.0
+radius = 5.0
+height = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7h6x2"]
 shader = ExtResource("2_sxp2u")

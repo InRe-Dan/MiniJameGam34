@@ -22,7 +22,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	Globals.joke_system = self
 	var dir : DirAccess = DirAccess.open("res://Jokes/JokeList/")
 	for filename : String in dir.get_files():
 		jokes.append(load("res://Jokes/JokeList/" + filename))
