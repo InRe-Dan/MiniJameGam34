@@ -20,6 +20,7 @@ func joke_failed() -> void:
 	var audience : Array = get_valid_children()
 	get_valid_children().shuffle()
 	var chance : float = 1.0
+	$"../../UI/JokeSystem/Failure".play()
 	for spectator : Spectator in audience:
 		if randf() < chance:
 			chance *= 0.5
