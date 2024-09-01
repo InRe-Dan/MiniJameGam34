@@ -261,6 +261,7 @@ stream = ExtResource("16_bfagw")
 
 [node name="Success" type="AudioStreamPlayer" parent="UI/JokeSystem"]
 stream = ExtResource("15_ruhv1")
+volume_db = -16.865
 
 [node name="DebugLabel" type="Label" parent="UI"]
 visible = false
@@ -287,10 +288,10 @@ position = Vector2(360, 270)
 [node name="Camera2D" type="Camera2D" parent="Anchor" groups=["camera"]]
 script = ExtResource("20_1uaoi")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="Dark CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.20871, 0.20871, 0.20871, 1)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="Light" type="PointLight2D" parent="."]
 position = Vector2(378, 285)
 scale = Vector2(12.7813, 9.6875)
 energy = 2.37
