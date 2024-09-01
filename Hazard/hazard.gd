@@ -23,11 +23,11 @@ var target : Vector2
 func _ready() -> void:
 	var scene_center : Marker2D = get_tree().get_first_node_in_group("main").scene_center
 	if randf() < Globals.hazard_accuracy:
-		target = get_tree().get_first_node_in_group("player").global_position + Vector2.from_angle(randf() * TAU) * Globals.player_radius
+		target = get_tree().get_first_node_in_group("player").global_position
 	else:
 		target.y = scene_center.global_position.y
 		target.x = scene_center.global_position.x + randf_range(-1, 1) * scene_center.gizmo_extents
-	direction = position.direction_to(target)
+	direction = position.direction_to(target).rotated(randf_range(-0.5, 0.5) * deg_to_rad(Globals.accuracy_cone_angle))
 	velocity = direction * speed
 	rotation = randf() * 2 * PI
 
@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	var mod: float = 1.0
 	if Globals.time_slowed: mod = 0.25
 	position += velocity * delta * mod
-	rotation += (speed * mod) / 2000
+	rotation += (speed * mod) / 4000
 
 
 ## Collided with player

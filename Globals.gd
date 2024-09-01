@@ -14,22 +14,21 @@ var screen_shake : float = 1.0
 var joke_difficulty : float
 ## Chance of hazards being thrown directly at the player
 var hazard_accuracy : float
-## How big the spectators think the player is. The higher it is, the precise
-## they are at aiming directly at the player
-var player_radius : int
+## Accuracy of hazard throws (measured in degrees)
+var accuracy_cone_angle : int
 
 func setup_level_1() -> void:
 	current_level = 1
 	hazard_accuracy = 0.3
-	player_radius = 150
+	accuracy_cone_angle = 60
 	joke_difficulty = 0.1
 func setup_level_2() -> void:
 	current_level = 2
 	hazard_accuracy = 0.5
-	player_radius = 100
+	accuracy_cone_angle = 50
 	joke_difficulty = 0.2
 func setup_level_3() -> void:
 	current_level = 3
 	hazard_accuracy = 0.7
-	player_radius = 50
+	accuracy_cone_angle = 30
 	joke_difficulty = 0.3
