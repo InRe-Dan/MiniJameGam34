@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ca6r6ki04qi2t" path="res://Hazard/Hazards/soda.tscn" id="7_qpxy0"]
 [ext_resource type="PackedScene" uid="uid://dbm4gk525hsx1" path="res://Hazard/Powerups/clock.tscn" id="8_klmir"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
-[ext_resource type="AudioStream" uid="uid://cj876hufbggk2" path="res://Assets/Audio/The Clown.mp3" id="16_ditl7"]
+[ext_resource type="AudioStream" uid="uid://cklks1ptk2a4l" path="res://Assets/Audio/The Clown.mp3" id="16_ditl7"]
 [ext_resource type="Script" path="res://Main/camera.gd" id="20_1uaoi"]
 
 [sub_resource type="Gradient" id="Gradient_4vja1"]
