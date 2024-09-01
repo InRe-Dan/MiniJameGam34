@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
+[ext_resource type="AudioStream" uid="uid://x22xmvix84cv" path="res://Assets/Audio/The Clownlessdrum.mp3" id="11_kk78x"]
 [ext_resource type="AudioStream" uid="uid://uvkydh0y761" path="res://Assets/Audio/sfx/JokeSucesss.ogg" id="15_ruhv1"]
 [ext_resource type="AudioStream" uid="uid://cgxuv7ek172to" path="res://Assets/Audio/sfx/hitclarinet.ogg" id="15_y86i5"]
 [ext_resource type="AudioStream" uid="uid://bl7ivclb6opf1" path="res://Assets/Audio/sfx/clickclown.ogg" id="16_5pxs3"]
@@ -168,7 +169,7 @@ gizmo_extents = 240.0
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("19_ujp2a")
+stream = ExtResource("11_kk78x")
 volume_db = -2.0
 autoplay = true
 
