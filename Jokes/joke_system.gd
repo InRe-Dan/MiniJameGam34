@@ -41,6 +41,7 @@ func make_player_say_punchline(joke : JokeResource) -> void:
 		func (): 
 		get_tree().get_first_node_in_group("player").say(joke.punchline, 2.0)
 		$Success.play()
+		$"../../HazardManager/Boo".play()
 		)
 	$Punchline.play()
 
@@ -68,13 +69,12 @@ func new_joke() -> void:
 		joke.progress.connect(play_progress_audio)
 		create_tween().tween_property(prompt, "position:y", prompt.position.y - 50, 0.3)
 
-
 ## Joke failed
 func _on_joke_failed(throwout) -> void:
 	Globals.laughs_got += 1
 	joke_failed.emit()
 	panel.self_modulate = Color.RED
-
+	$"../../HazardManager/Laugh".play()
 
 func play_progress_audio(throwout) -> void:
 	$Progress.play()
