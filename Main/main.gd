@@ -4,7 +4,6 @@ extends Node2D
 
 @export var scene_center : Marker2D
 @export var passive_satisfaction_increase = 0.01
-@export var success_audio: Array[AudioStream]
 
 @onready var approval_rating: TextureProgressBar = %ApprovalRating
 @onready var success_player: AudioStreamPlayer = $Audio/SuccessSound
@@ -34,8 +33,8 @@ func _on_joke_system_joke_failed() -> void:
 	satisfaction += 0.05 * difficulty
 func _on_joke_system_joke_success() -> void:
 	satisfaction -= 0.1
-	success_player.stream = success_audio.pick_random()
-	success_player.play()
+	#success_player.stream = success_audio.pick_random()
+	#success_player.play()
 func _on_player_got_hit(satisfaction_change: float) -> void:
 	satisfaction += satisfaction_change
 func _on_v_slider_value_changed(value: float) -> void:

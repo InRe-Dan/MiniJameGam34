@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://c0qvtvbso7bqk"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_0c8ml"]
+
+[resource]
+script = ExtResource("1_0c8ml")
+setup = "Why does Dracula always bite people in the neck?"
+punchline = "Because he is a neck romancer!"

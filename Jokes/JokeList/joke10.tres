@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://cdf2ism1dt8ls"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_dovq5"]
+
+[resource]
+script = ExtResource("1_dovq5")
+setup = "How much does a chimney cost?"
+punchline = "Nothing, it's on the house!"

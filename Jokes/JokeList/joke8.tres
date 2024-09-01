@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://c64f55auyarn4"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_4gs6a"]
+
+[resource]
+script = ExtResource("1_4gs6a")
+setup = "Can a frog jump higher than a house?"
+punchline = "Of course, a house can't juımp!"

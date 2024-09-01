@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=30 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -13,12 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ca6r6ki04qi2t" path="res://Hazard/Hazards/soda.tscn" id="7_qpxy0"]
 [ext_resource type="PackedScene" uid="uid://dbm4gk525hsx1" path="res://Hazard/Powerups/clock.tscn" id="8_klmir"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
-[ext_resource type="AudioStream" uid="uid://cwhw5bdw1apxm" path="res://Assets/Audio/Red in the darkproto.mp3" id="13_udagc"]
-[ext_resource type="AudioStream" uid="uid://bm6y5rnf3u5es" path="res://Assets/Audio/brass1.mp3" id="14_32kh8"]
-[ext_resource type="AudioStream" uid="uid://bik4n3saccjs1" path="res://Assets/Audio/brass2.mp3" id="15_iw7sy"]
-[ext_resource type="AudioStream" uid="uid://cajpe4nj7b66h" path="res://Assets/Audio/brass3.mp3" id="16_wsep6"]
-[ext_resource type="AudioStream" uid="uid://da7skyi3dl1yw" path="res://Assets/Audio/brass4..mp3" id="17_xqbg0"]
-[ext_resource type="AudioStream" uid="uid://ds5r3gvp308om" path="res://Assets/Audio/brass5.mp3" id="18_3nqah"]
+[ext_resource type="AudioStream" uid="uid://cj876hufbggk2" path="res://Assets/Audio/The Clown.mp3" id="16_ditl7"]
 [ext_resource type="Script" path="res://Main/camera.gd" id="20_1uaoi"]
 
 [sub_resource type="Gradient" id="Gradient_4vja1"]
@@ -73,7 +68,6 @@ gradient = SubResource("Gradient_wx4ct")
 texture_filter = 1
 script = ExtResource("1_5t87c")
 scene_center = NodePath("StageCenter")
-success_audio = Array[AudioStream]([ExtResource("14_32kh8"), ExtResource("15_iw7sy"), ExtResource("16_wsep6"), ExtResource("17_xqbg0"), ExtResource("18_3nqah")])
 
 [node name="DebugCamera" type="Camera2D" parent="."]
 position = Vector2(359, 104)
@@ -167,7 +161,7 @@ gizmo_extents = 240.0
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("13_udagc")
+stream = ExtResource("16_ditl7")
 volume_db = -2.0
 autoplay = true
 
