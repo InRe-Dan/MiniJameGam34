@@ -74,6 +74,7 @@ wall_min_slide_angle = 0.0174533
 script = ExtResource("1_pobeb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.7, 0.7, 0.7, 1)
 position = Vector2(2, -3)
 sprite_frames = SubResource("SpriteFrames_16lxd")
 animation = &"walk"
