@@ -9,7 +9,7 @@ radius = 7.0
 [node name="Puddle" instance=ExtResource("1_g0dmh")]
 z_index = -1
 force = 2.4
-satisfaction = 0.04
+satisfaction = 0.02
 hitstun = 0.3
 lingering = true
 

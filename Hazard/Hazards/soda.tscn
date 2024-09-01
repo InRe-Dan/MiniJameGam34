@@ -12,7 +12,7 @@ height = 13.0
 height = 27.0
 
 [node name="Soda" instance=ExtResource("1_dky05")]
-speed = 300.0
+speed = 285.0
 satisfaction = 0.02
 lingering_spawn = ExtResource("2_63uud")
 

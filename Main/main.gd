@@ -3,7 +3,7 @@ extends Node2D
 ## Main game handler
 
 @export var scene_center : Marker2D
-@export var passive_satisfaction_increase = 0.01
+@export var passive_satisfaction_increase = 0.005
 
 @onready var approval_rating: HBoxContainer = %ApprovalRating
 @onready var success_player: AudioStreamPlayer = $Audio/SuccessSound
@@ -13,7 +13,6 @@ var game_over_scene : PackedScene = preload("res://menus/game_over.tscn")
 
 signal satisfaction_changed(new : float)
 
-var difficulty: float = 0.5
 var satisfaction : float = 1.0:
 	set(x):
 		if x < 0:
@@ -38,10 +37,10 @@ func game_over() -> void:
 
 func _process(delta : float) -> void:
 	Globals.time_played += delta
-	satisfaction += delta * passive_satisfaction_increase * difficulty
+	satisfaction += delta * passive_satisfaction_increase
 
 func _on_joke_system_joke_failed() -> void:
-	satisfaction += 0.05 * difficulty
+	satisfaction += 0.05
 func _on_joke_system_joke_success() -> void:
 	satisfaction -= 0.1
 	#success_player.stream = success_audio.pick_random()

@@ -40,6 +40,6 @@ func setup_level_2() -> void:
 func setup_level_3() -> void:
 	current_level = 3
 	hazard_accuracy = 0.7
-	accuracy_cone_angle = 30
+	accuracy_cone_angle = 40
 	joke_difficulty = 0.3
 	spawn_data = load("res://Main/LevelSpawnSets/night3.tres")
