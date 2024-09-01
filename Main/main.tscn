@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=36 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
 [ext_resource type="AudioStream" uid="uid://c4cn3gkxnh8xa" path="res://Assets/Audio/general-chatter-in-bar-14816.mp3" id="7_8vygh"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
+[ext_resource type="Script" path="res://Main/hint.gd" id="8_ahute"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
 [ext_resource type="Texture2D" uid="uid://b33du3u0dl4a3" path="res://Assets/Pixel_art/stars.png" id="8_od55v"]
 [ext_resource type="AudioStream" uid="uid://x22xmvix84cv" path="res://Assets/Audio/The Clownlessdrum.mp3" id="11_kk78x"]
@@ -65,6 +66,24 @@ region = Rect2(0, 0, 18, 18)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6yyrn"]
 atlas = ExtResource("8_od55v")
 region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="LabelSettings" id="LabelSettings_21j47"]
+font_size = 48
+outline_size = 10
+outline_color = Color(0, 0, 0, 0.878431)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(3, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qjdbk"]
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 0.741176)
+
+[sub_resource type="LabelSettings" id="LabelSettings_16tqe"]
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 0.737255)
 
 [sub_resource type="Gradient" id="Gradient_rwn58"]
 offsets = PackedFloat32Array(0, 0.980519)
@@ -143,18 +162,18 @@ position = Vector2(360, -122)
 shape = SubResource("WorldBoundaryShape2D_0helb")
 
 [node name="BottomWall" type="CollisionShape2D" parent="Collision/WorldBounds"]
-position = Vector2(358, 460)
+position = Vector2(358, 454)
 shape = SubResource("WorldBoundaryShape2D_ybwdi")
 
 [node name="Stage" type="StaticBody2D" parent="Collision"]
-position = Vector2(360, 500)
+position = Vector2(360, 512)
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision/Stage"]
 position = Vector2(0, -40)
 scale = Vector2(1.1, 1.1)
-polygon = PackedVector2Array(-280, 0, 280, 0, 280, -130, 260, -160, 200, -195, 80, -225, -80, -225, -200, -195, -260, -160, -280, -130)
+polygon = PackedVector2Array(-261.818, -0.909088, 262.727, 6.36365, 263.636, -130, 247.273, -155.455, 196.364, -192.727, 80, -225, -80, -225, -200, -195, -248.182, -152.727, -260.909, -130.909)
 
 [node name="SpectatorArea" type="StaticBody2D" parent="Collision"]
 position = Vector2(360, 500)
@@ -193,6 +212,7 @@ autoplay = true
 layer = 5
 
 [node name="Control" type="Control" parent="UI"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -201,45 +221,77 @@ offset_right = 720.0
 offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+script = ExtResource("8_ahute")
 
-[node name="ApprovalRating" type="HBoxContainer" parent="UI/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 5.33333
+offset_right = 648.0
+offset_bottom = 69.3333
+
+[node name="ApprovalRating" type="HBoxContainer" parent="UI/Control/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 64)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 215.0
-offset_right = -865.0
-offset_bottom = 64.0
-grow_horizontal = 2
-scale = Vector2(0.8, 0.8)
+layout_mode = 2
 alignment = 1
 script = ExtResource("7_id6l1")
 
-[node name="1" type="TextureRect" parent="UI/Control/ApprovalRating"]
+[node name="1" type="TextureRect" parent="UI/Control/VBoxContainer/ApprovalRating"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_37ogi")
 expand_mode = 2
 
-[node name="2" type="TextureRect" parent="UI/Control/ApprovalRating"]
+[node name="2" type="TextureRect" parent="UI/Control/VBoxContainer/ApprovalRating"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_e1m18")
 expand_mode = 2
 
-[node name="3" type="TextureRect" parent="UI/Control/ApprovalRating"]
+[node name="3" type="TextureRect" parent="UI/Control/VBoxContainer/ApprovalRating"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_i8kgp")
 expand_mode = 2
 
-[node name="4" type="TextureRect" parent="UI/Control/ApprovalRating"]
+[node name="4" type="TextureRect" parent="UI/Control/VBoxContainer/ApprovalRating"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_ra1rn")
 expand_mode = 2
 
-[node name="5" type="TextureRect" parent="UI/Control/ApprovalRating"]
+[node name="5" type="TextureRect" parent="UI/Control/VBoxContainer/ApprovalRating"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_6yyrn")
 expand_mode = 2
+
+[node name="Label" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_left = 306.667
+offset_top = 42.6667
+offset_right = 651.667
+offset_bottom = 80.6667
+text = "Customer Satisfaction"
+label_settings = SubResource("LabelSettings_21j47")
+
+[node name="Thing1" type="Label" parent="UI/Control"]
+z_index = -1
+layout_mode = 0
+offset_left = 332.0
+offset_top = -60.0
+offset_right = 634.0
+offset_bottom = -34.0
+text = "Customers are too satisfied!"
+label_settings = SubResource("LabelSettings_qjdbk")
+
+[node name="Thing2" type="Label" parent="UI/Control"]
+z_index = -1
+layout_mode = 0
+offset_left = 374.667
+offset_top = -30.6667
+offset_right = 586.667
+offset_bottom = -4.66667
+text = "Tell some bad jokes!"
+label_settings = SubResource("LabelSettings_16tqe")
+horizontal_alignment = 1
 
 [node name="PromptContainer" type="CenterContainer" parent="UI"]
 custom_minimum_size = Vector2(0, 50)
