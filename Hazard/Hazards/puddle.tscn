@@ -1,17 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw5pe6117mjgu"]
+[gd_scene load_steps=4 format=3 uid="uid://cw5pe6117mjgu"]
 
 [ext_resource type="PackedScene" uid="uid://bcudix53js4vw" path="res://Hazard/hazard.tscn" id="1_g0dmh"]
+[ext_resource type="Texture2D" uid="uid://l8yhhm0xotxx" path="res://Assets/Pixel_art/puddle.png" id="2_rq7bg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fw234"]
+radius = 7.0
 
 [node name="Puddle" instance=ExtResource("1_g0dmh")]
+z_index = -1
 force = 2.4
 hitstun = 1.6
 lingering = true
 
 [node name="Sprite2D" parent="." index="0"]
-modulate = Color(0, 0.2, 1, 1)
+texture = ExtResource("2_rq7bg")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_fw234")
 
 [node name="Lifetime" type="Timer" parent="." index="2"]
-wait_time = 10.0
+wait_time = 6.0
 one_shot = true
 autostart = true
 

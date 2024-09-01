@@ -8,6 +8,7 @@ atlas = ExtResource("1_y415b")
 region = Rect2(103, 2, 18, 30)
 
 [node name="Main Menu" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

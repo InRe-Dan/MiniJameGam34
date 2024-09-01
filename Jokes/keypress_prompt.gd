@@ -29,7 +29,7 @@ func reset() -> void:
 		joke_container.remove_child(child)
 	for keypress : JokeResource.Keypress in joke.sequence:
 		add(keypress)
-	joke_container.get_children().front().modulate = Color.WHITE
+	#joke_container.get_children().front().modulate = Color.WHITE
 	current_index = 0
 	
 func progress() -> void:
@@ -54,7 +54,7 @@ func fail() -> void:
 
 func add(keypress : JokeResource.Keypress) -> void:
 	var new : TextureRect = template.duplicate()
-	new.modulate = Color.TRANSPARENT
+	#new.modulate = Color.TRANSPARENT
 	if keypress.dir == JokeResource.Direction.RIGHT:
 		new.texture = right
 	if keypress.dir == JokeResource.Direction.LEFT:

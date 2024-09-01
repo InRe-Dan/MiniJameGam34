@@ -49,6 +49,7 @@ func spawn_hazard(hazard: Hazard) -> void:
 	time_since_last_hazard = 0.
 	# Between 0.6 and 1.4
 	frequency_modifier = 0.6 + randf() * 0.8
+	if Globals.time_slowed: frequency_modifier *= 0.25
 
 
 ## Returns a random hazard
@@ -74,10 +75,10 @@ func _on_effect_created(effect: Status) -> void:
 func _on_effect_deleted(effect: Status) -> void:
 	var last_effect
 	if effect is SlowTime:
-		last_effect = false
+		last_effect = true
 		for e in effects:
-			if e is SlowTime:
-				last_effect = true
+			if e is SlowTime and not e == effect:
+				last_effect = false
 				break
 		if last_effect: Globals.time_slowed = false
 	

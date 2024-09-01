@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 	var mod: float = 1.0
 	if Globals.time_slowed: mod = 0.25
 	position += velocity * delta * mod
+	rotation += (speed * mod) / 2000
 
 
 ## Collided with player

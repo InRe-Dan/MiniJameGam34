@@ -9,7 +9,7 @@ extends Node2D
 
 signal satisfaction_changed(new : float)
 
-var difficulty: float = 1.0
+var difficulty: float = 0.5
 var satisfaction : float = 1.0:
 	set(x):
 		satisfaction = clamp(x, 0, 1)

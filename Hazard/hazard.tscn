@@ -1,22 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcudix53js4vw"]
+[gd_scene load_steps=2 format=3 uid="uid://bcudix53js4vw"]
 
 [ext_resource type="Script" path="res://Hazard/hazard.gd" id="1_rvm33"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_thfl7"]
-size = Vector2(10, 10)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_r4v8d"]
-radius = 5.0
-
 [node name="Hazard" type="Area2D"]
+scale = Vector2(2, 2)
 collision_layer = 4
 monitorable = false
 script = ExtResource("1_rvm33")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_thfl7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_r4v8d")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

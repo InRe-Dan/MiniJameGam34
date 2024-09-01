@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
 [ext_resource type="Script" path="res://Hazard/hazard_spawn_data.gd" id="4_o1nxd"]
 [ext_resource type="PackedScene" uid="uid://bko632gtiaj3s" path="res://Hazard/Hazards/tomato.tscn" id="5_l85j4"]
-[ext_resource type="PackedScene" path="res://Hazard/Hazards/chair.tscn" id="6_na7sg"]
+[ext_resource type="PackedScene" uid="uid://cn6cudnyv88qp" path="res://Hazard/Hazards/chair.tscn" id="6_na7sg"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
 [ext_resource type="PackedScene" uid="uid://ca6r6ki04qi2t" path="res://Hazard/Hazards/soda.tscn" id="7_qpxy0"]
 [ext_resource type="PackedScene" uid="uid://dbm4gk525hsx1" path="res://Hazard/Powerups/clock.tscn" id="8_klmir"]
@@ -78,11 +78,13 @@ script = ExtResource("1_5t87c")
 scene_center = NodePath("StageCenter")
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -20
 position = Vector2(376, 283)
 scale = Vector2(12.75, 9.84375)
 texture = SubResource("GradientTexture2D_syp3o")
 
 [node name="PlaceholderStage" type="Sprite2D" parent="."]
+z_index = -10
 position = Vector2(361, 312)
 texture = SubResource("GradientTexture2D_wc5b8")
 region_enabled = true
