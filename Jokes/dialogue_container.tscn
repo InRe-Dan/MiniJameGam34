@@ -3,8 +3,10 @@
 [ext_resource type="Script" path="res://Jokes/dialogue_container.gd" id="1_qr6hl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tnk6f"]
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_fclo0"]
+font_size = 32
 
 [node name="DialogueContainer" type="CenterContainer"]
 anchors_preset = 15
@@ -12,10 +14,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 6
 script = ExtResource("1_qr6hl")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_top = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(500, 0)
@@ -31,7 +35,7 @@ horizontal_alignment = 1
 
 [node name="Punchline" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 text = "Here's where the punchline is gonna be!"
 label_settings = SubResource("LabelSettings_fclo0")
+horizontal_alignment = 1

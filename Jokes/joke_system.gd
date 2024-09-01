@@ -10,7 +10,6 @@ signal joke_success
 signal joke_failed
 
 @onready var panel: Panel = $MarginContainer/Panel
-@onready var strikeout: ColorRect = $MarginContainer/VBoxContainer/PromptContainer/Strikeout
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -47,18 +46,19 @@ func make_player_say_punchline(joke : JokeResource) -> void:
 
 func joke_finished(joke : JokeResource) -> void:
 	self.joke = null
-	get_tree().create_timer(3).timeout.connect(new_joke)
+	var t = create_tween()
+	t.tween_interval(0.2)
+	t.tween_property(prompt, "position:y", prompt.position.y + 50, 0.2)
+	get_tree().create_timer(3.5).timeout.connect(new_joke)
 
 func new_joke() -> void:
 	if not joke:
 		joke = jokes.pick_random().duplicate()
 		for child in keypress_prompt_container.get_children():
-			if child == strikeout: continue
 			keypress_prompt_container.remove_child(child)
 		prompt = joke.make_prompt()
 		keypress_prompt_container.add_child(prompt)
 		panel.self_modulate = Color.WHITE
-		strikeout.visible = false
 		joke.success.connect(make_player_say_punchline)
 		joke.success.connect(func (x): joke_success.emit())
 		joke.fail.connect(_on_joke_failed)
@@ -66,6 +66,7 @@ func new_joke() -> void:
 		joke.success.connect(joke_finished)
 		joke.fail.connect(joke_finished)
 		joke.progress.connect(play_progress_audio)
+		create_tween().tween_property(prompt, "position:y", prompt.position.y - 50, 0.3)
 
 
 ## Joke failed
@@ -73,7 +74,6 @@ func _on_joke_failed(throwout) -> void:
 	Globals.laughs_got += 1
 	joke_failed.emit()
 	panel.self_modulate = Color.RED
-	strikeout.visible = true
 
 
 func play_progress_audio(throwout) -> void:
