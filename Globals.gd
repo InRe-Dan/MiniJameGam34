@@ -8,6 +8,7 @@ var time_slowed: bool = false
 var level_reached = 3
 var current_level
 var screen_shake : float = 1.0
+var spawn_data: LevelSpawnData
 
 # Game difficulty parameters ====================================
 ## Number of QTE keypresses required per character in a joke
@@ -22,13 +23,16 @@ func setup_level_1() -> void:
 	hazard_accuracy = 0.3
 	accuracy_cone_angle = 60
 	joke_difficulty = 0.1
+	spawn_data = load("res://Main/LevelSpawnSets/night1.tres")
 func setup_level_2() -> void:
 	current_level = 2
 	hazard_accuracy = 0.5
 	accuracy_cone_angle = 50
 	joke_difficulty = 0.2
+	spawn_data = load("res://Main/LevelSpawnSets/night2.tres")
 func setup_level_3() -> void:
 	current_level = 3
 	hazard_accuracy = 0.7
 	accuracy_cone_angle = 30
 	joke_difficulty = 0.3
+	spawn_data = load("res://Main/LevelSpawnSets/night3.tres")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=23 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -6,12 +6,7 @@
 [ext_resource type="Script" path="res://Hazard/hazard_manager.gd" id="3_lubpb"]
 [ext_resource type="Script" path="res://Jokes/joke_system.gd" id="3_wbmed"]
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
-[ext_resource type="Script" path="res://Hazard/hazard_spawn_data.gd" id="4_o1nxd"]
-[ext_resource type="PackedScene" uid="uid://bko632gtiaj3s" path="res://Hazard/Hazards/tomato.tscn" id="5_l85j4"]
-[ext_resource type="PackedScene" uid="uid://cn6cudnyv88qp" path="res://Hazard/Hazards/chair.tscn" id="6_na7sg"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
-[ext_resource type="PackedScene" uid="uid://ca6r6ki04qi2t" path="res://Hazard/Hazards/soda.tscn" id="7_qpxy0"]
-[ext_resource type="PackedScene" uid="uid://dbm4gk525hsx1" path="res://Hazard/Powerups/clock.tscn" id="8_klmir"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
 [ext_resource type="AudioStream" uid="uid://cj876hufbggk2" path="res://Assets/Audio/The Clown.mp3" id="11_i2owt"]
 [ext_resource type="Script" path="res://Main/camera.gd" id="20_1uaoi"]
@@ -22,22 +17,6 @@ colors = PackedColorArray(0.17, 0.0765, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_syp3o"]
 gradient = SubResource("Gradient_4vja1")
-
-[sub_resource type="Resource" id="Resource_wi5i0"]
-script = ExtResource("4_o1nxd")
-hazard = ExtResource("5_l85j4")
-
-[sub_resource type="Resource" id="Resource_fbii7"]
-script = ExtResource("4_o1nxd")
-hazard = ExtResource("6_na7sg")
-
-[sub_resource type="Resource" id="Resource_h0wcy"]
-script = ExtResource("4_o1nxd")
-hazard = ExtResource("7_qpxy0")
-
-[sub_resource type="Resource" id="Resource_8d36d"]
-script = ExtResource("4_o1nxd")
-hazard = ExtResource("8_klmir")
 
 [sub_resource type="Gradient" id="Gradient_supxc"]
 offsets = PackedFloat32Array(0, 0.400631, 0.62776, 1)
@@ -106,7 +85,6 @@ acceleration = 28.0
 
 [node name="HazardManager" type="Node2D" parent="."]
 script = ExtResource("3_lubpb")
-hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0"), SubResource("Resource_fbii7"), SubResource("Resource_h0wcy"), SubResource("Resource_8d36d")])
 
 [node name="Hazards" type="Node2D" parent="HazardManager"]
 

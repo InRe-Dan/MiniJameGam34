@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelSpawnData" load_steps=9 format=3 uid="uid://d4ayu5to2mehs"]
+
+[ext_resource type="Script" path="res://Main/level_spawn_data.gd" id="1_l5jt4"]
+[ext_resource type="Script" path="res://Hazard/hazard_spawn_data.gd" id="2_mdc2d"]
+[ext_resource type="PackedScene" uid="uid://bko632gtiaj3s" path="res://Hazard/Hazards/tomato.tscn" id="3_vmsnt"]
+[ext_resource type="PackedScene" uid="uid://cn6cudnyv88qp" path="res://Hazard/Hazards/chair.tscn" id="4_d0feo"]
+[ext_resource type="PackedScene" uid="uid://dbm4gk525hsx1" path="res://Hazard/Powerups/clock.tscn" id="5_perx4"]
+
+[sub_resource type="Resource" id="Resource_50i2d"]
+script = ExtResource("2_mdc2d")
+hazard = ExtResource("3_vmsnt")
+
+[sub_resource type="Resource" id="Resource_503qm"]
+script = ExtResource("2_mdc2d")
+hazard = ExtResource("4_d0feo")
+
+[sub_resource type="Resource" id="Resource_wa5ig"]
+script = ExtResource("2_mdc2d")
+hazard = ExtResource("5_perx4")
+
+[resource]
+script = ExtResource("1_l5jt4")
+spawn_data = Array[ExtResource("2_mdc2d")]([SubResource("Resource_50i2d"), SubResource("Resource_50i2d"), SubResource("Resource_50i2d"), SubResource("Resource_503qm"), SubResource("Resource_wa5ig")])

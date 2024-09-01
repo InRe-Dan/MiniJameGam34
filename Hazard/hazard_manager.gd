@@ -1,7 +1,7 @@
 extends Node2D
 ## Responsible for spawning hazards
 
-@export var hazards: Array[HazardSpawnData]
+@export var hazards: LevelSpawnData
 
 var hazardData: Array[HazardSpawnData] = []
 
@@ -43,7 +43,9 @@ func recalculate_frequency() -> int:
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for data: HazardSpawnData in hazards:
+	hazards = Globals.spawn_data
+	
+	for data: HazardSpawnData in hazards.spawn_data:
 		hazardData.append(data)
 
 	hazard_frequency = recalculate_frequency()
