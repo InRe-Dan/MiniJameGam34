@@ -7,6 +7,11 @@ extends Control
 @onready var vol_slider : HSlider = %Volumeslider
 @onready var screen_button : Button = %Screenshake
 @onready var screen_slider : HSlider = %Screenslider
+@onready var fullscreen : Button = %Fullscreen
+@onready var x1 : Button = %"1x"
+@onready var x2 : Button = %"2x"
+@onready var x3 : Button = %"3x"
+var base_size : Vector2i = Vector2i(720, 540)
 
 func _ready() -> void:
 	if Globals.level_reached > 1:
@@ -43,3 +48,19 @@ func _on_volume_toggled(toggled_on: bool) -> void:
 func _on_screenslider_changed() -> void:
 	# TODO
 	pass # Replace with function body.
+
+func _on_fullscreen_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+func _on_1x_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		get_viewport().size = (base_size * 1)
+func _on_2x_toggled(toggled_on : bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		get_viewport().size = (base_size * 2)
+func _on_3x_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		get_viewport().size = (base_size * 3)
