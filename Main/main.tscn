@@ -76,6 +76,7 @@ success_audio = Array[AudioStream]([ExtResource("14_32kh8"), ExtResource("15_iw7
 
 [node name="DebugCamera" type="Camera2D" parent="."]
 position = Vector2(359, 104)
+enabled = false
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -20

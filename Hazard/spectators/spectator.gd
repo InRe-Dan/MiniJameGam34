@@ -27,6 +27,8 @@ func set_new_objective() -> void:
 	# Reattempt a few times
 	for i in range(5):
 		eyesight.target_position = Vector2.from_angle(randf() * TAU) * 100
+		# Go down more often than not
+		eyesight.target_position.y += randf() * 50
 		if eyesight.is_colliding():
 			continue;
 		else:
@@ -40,7 +42,7 @@ func set_new_objective() -> void:
 func check_position() -> void:
 	if reached_target:
 		return
-	if global_position.distance_squared_to(objective_position) < 100 or time_spent_walking > max_walk_time:
+	if global_position.distance_squared_to(objective_position) < 100 or time_spent_walking > max_walk_time or get_last_slide_collision():
 		reached_target = true
 		time_spent_walking = 0
 		if called_back:
@@ -57,6 +59,8 @@ func _process(delta : float) -> void:
 	$Debug.text += "\n" + str(time_spent_walking)
 
 	if not reached_target:
+		if sprite.animation != "throw":
+			sprite.play("walk")
 		time_spent_walking += delta
 		velocity = global_position.direction_to(objective_position) * 50
 		if velocity.x > 0:
@@ -64,6 +68,9 @@ func _process(delta : float) -> void:
 		else:
 			sprite.flip_h = true
 	else:
+		do_throws()
+		if sprite.animation != "throw":
+			sprite.play("idle")
 		var player : Node2D = get_tree().get_first_node_in_group("player")
 		sprite.flip_h = true if global_position.direction_to(player.global_position).x < 0 else false
 		velocity = Vector2.ZERO
@@ -73,14 +80,17 @@ func _process(delta : float) -> void:
 ## Create a hazard
 func prepare_hazard(hazard: Hazard) -> void:
 	queue.append(hazard)
-	#print("preparing ", hazard)
-	# Start animation if not already playing
-	# TODO: REPLACE
-	release()
+
+func do_throws() -> void:
+	if sprite.animation != "throw" and queue:
+		sprite.play("throw")
+
+
 
 ## Animation finished
 func release() -> void:
 	#print("ready to release")
+	sprite.play("idle")
 	if queue.size() == 0: 
 		return
 	

@@ -30,6 +30,5 @@ func _on_joke_system_joke_success() -> void:
 	success_player.play()
 func _on_player_got_hit(satisfaction_change: float) -> void:
 	satisfaction += satisfaction_change
-
 func _on_v_slider_value_changed(value: float) -> void:
 	satisfaction = value
