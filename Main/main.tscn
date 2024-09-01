@@ -103,7 +103,7 @@ debug_label = NodePath("../../UI/DebugLabel")
 visible = false
 
 [node name="StatusEffect" type="Sprite2D" parent="HazardManager"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(360, 270)
 texture = SubResource("GradientTexture2D_ay0fj")
 
