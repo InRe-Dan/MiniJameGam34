@@ -6,12 +6,7 @@
 [ext_resource type="Script" path="res://Hazard/hazard_manager.gd" id="3_lubpb"]
 [ext_resource type="Script" path="res://Jokes/joke_system.gd" id="3_wbmed"]
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
-[ext_resource type="Script" path="res://Hazard/hazard_spawn_data.gd" id="4_o1nxd"]
-[ext_resource type="PackedScene" uid="uid://bko632gtiaj3s" path="res://Hazard/Hazards/tomato.tscn" id="5_l85j4"]
-[ext_resource type="PackedScene" uid="uid://cn6cudnyv88qp" path="res://Hazard/Hazards/chair.tscn" id="6_na7sg"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
-[ext_resource type="PackedScene" uid="uid://ca6r6ki04qi2t" path="res://Hazard/Hazards/soda.tscn" id="7_qpxy0"]
-[ext_resource type="PackedScene" uid="uid://dbm4gk525hsx1" path="res://Hazard/Powerups/clock.tscn" id="8_klmir"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
 [ext_resource type="AudioStream" uid="uid://uvkydh0y761" path="res://Assets/Audio/sfx/JokeSucesss.ogg" id="15_ruhv1"]
 [ext_resource type="AudioStream" uid="uid://cgxuv7ek172to" path="res://Assets/Audio/sfx/hitclarinet.ogg" id="15_y86i5"]
@@ -27,21 +22,16 @@ colors = PackedColorArray(0.17, 0.0765, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_syp3o"]
 gradient = SubResource("Gradient_4vja1")
 
-[sub_resource type="Resource" id="Resource_wi5i0"]
-script = ExtResource("4_o1nxd")
-hazard = ExtResource("5_l85j4")
+[sub_resource type="Gradient" id="Gradient_supxc"]
+offsets = PackedFloat32Array(0, 0.400631, 0.62776, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.201893, 0.201893, 0.201893, 0.201893, 0.125, 0.35625, 0.5, 0.152941, 0, 0.616667, 1, 0.392157)
 
-[sub_resource type="Resource" id="Resource_fbii7"]
-script = ExtResource("4_o1nxd")
-hazard = ExtResource("6_na7sg")
-
-[sub_resource type="Resource" id="Resource_h0wcy"]
-script = ExtResource("4_o1nxd")
-hazard = ExtResource("7_qpxy0")
-
-[sub_resource type="Resource" id="Resource_8d36d"]
-script = ExtResource("4_o1nxd")
-hazard = ExtResource("8_klmir")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ay0fj"]
+gradient = SubResource("Gradient_supxc")
+width = 720
+height = 540
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mip7o"]
 normal = Vector2(1, 0)
@@ -109,7 +99,6 @@ acceleration = 28.0
 
 [node name="HazardManager" type="Node2D" parent="."]
 script = ExtResource("3_lubpb")
-hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0"), SubResource("Resource_fbii7"), SubResource("Resource_h0wcy"), SubResource("Resource_8d36d")])
 
 [node name="Hazards" type="Node2D" parent="HazardManager"]
 
@@ -122,6 +111,11 @@ debug_label = NodePath("../../UI/DebugLabel")
 
 [node name="Effects" type="Node2D" parent="HazardManager"]
 visible = false
+
+[node name="StatusEffect" type="Sprite2D" parent="HazardManager"]
+visible = false
+position = Vector2(360, 270)
+texture = SubResource("GradientTexture2D_ay0fj")
 
 [node name="Collision" type="Node2D" parent="."]
 
@@ -175,7 +169,7 @@ gizmo_extents = 240.0
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("16_ditl7")
+stream = ExtResource("11_i2owt")
 volume_db = -2.0
 autoplay = true
 

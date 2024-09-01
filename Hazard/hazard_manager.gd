@@ -1,7 +1,7 @@
 extends Node2D
 ## Responsible for spawning hazards
 
-@export var hazards: Array[HazardSpawnData]
+@export var hazards: LevelSpawnData
 
 var hazardData: Array[HazardSpawnData] = []
 
@@ -9,6 +9,7 @@ var hazardData: Array[HazardSpawnData] = []
 @onready var audience: Node2D = $Audience
 @onready var effects_container: Node2D = $Effects
 @onready var main : Main = get_tree().get_first_node_in_group("main")
+@onready var slow_effect: Sprite2D = $StatusEffect
 
 var effects: Array[Status] = []
 
@@ -42,7 +43,9 @@ func recalculate_frequency() -> int:
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for data: HazardSpawnData in hazards:
+	hazards = Globals.spawn_data
+	
+	for data: HazardSpawnData in hazards.spawn_data:
 		hazardData.append(data)
 
 	hazard_frequency = recalculate_frequency()
@@ -84,6 +87,7 @@ func _on_effect_created(effect: Status) -> void:
 	effect.ended.connect(_on_effect_deleted, ConnectFlags.CONNECT_DEFERRED)
 	if effect is SlowTime:
 		Globals.time_slowed = true
+		slow_effect.visible = true
 
 
 ## Status effect delete
@@ -95,7 +99,9 @@ func _on_effect_deleted(effect: Status) -> void:
 			if e is SlowTime and not e == effect:
 				last_effect = false
 				break
-		if last_effect: Globals.time_slowed = false
+		if last_effect:
+			Globals.time_slowed = false
+			slow_effect.visible = false
 	
 	effects.remove_at(effects.find(effect))
 	effect.queue_free()
