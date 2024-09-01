@@ -10,6 +10,7 @@ var speed_mod: float = 1.0
 signal got_hit
 
 @onready var stun_timer: Timer = $StunTimer
+@onready var speech : Speech = $Speech
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,6 +31,8 @@ func get_input_vector() -> Vector2:
 
 ## Hits the player with the hazard
 func hit(impulse: Vector2, satisfaction: float, hitstun: float) -> void:
+	if impulse.length() > 0:
+		speech.say("Ouch!")
 	velocity += impulse
 	stun(hitstun)
 	got_hit.emit(satisfaction)

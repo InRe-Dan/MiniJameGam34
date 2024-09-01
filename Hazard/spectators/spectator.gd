@@ -8,6 +8,34 @@ var colours : ColorPalette = preload("res://Hazard/spectators/palette.tres")
 
 signal hazard_deployed(hazard)
 
+const hit_lines : Array[String] = [
+	"Gotcha!",
+	"Got him!",
+	"Haha!"
+]
+const throw_lines : Array[String] = [
+	"Take this!",
+	"Eat that!",
+	"Booo!"
+]
+
+const boo_lines : Array[String] = [
+	"Booo!",
+	"Awful...",
+	"Do better!",
+	"Got any funny jokes?",
+	"Not funny.",
+	"Didn't laugh."
+]
+
+const cheer_lines : Array[String] = [
+	"Haha!!",
+	"Ha!",
+	"Ahaha!",
+	"ROFL!",
+	"Loser!"
+]
+
 var queue: Array[Hazard]
 var objective_position : Vector2
 var called_back : bool = false
@@ -85,6 +113,10 @@ func do_throws() -> void:
 	if sprite.animation != "throw" and queue:
 		sprite.play("throw")
 
+func exclaim(hazard : Hazard) -> void:
+	if hazard.force > 0:
+		if randf() < 0.5:
+			$Speech.say(hit_lines.pick_random())
 
 
 ## Animation finished
@@ -95,10 +127,18 @@ func release() -> void:
 		return
 	
 	# Dequeue hazard
+	if randf() < 0.1:
+		$Speech.say(throw_lines.pick_random())
 	var hazard: Hazard = queue.pop_front()
-	
+	hazard.hit_player.connect(exclaim)
 	hazard.position = position
 	hazard_deployed.emit(hazard)
+	
+func boo() -> void:
+	get_tree().create_timer(randf() * 0.2).timeout.connect(func (): $Speech.say(boo_lines.pick_random()))
+	
+func cheer() -> void:
+	get_tree().create_timer(randf() * 0.2).timeout.connect(func (): $Speech.say(cheer_lines.pick_random()))
 	
 ## Tells the spectator to go back to the spawn zone so that he can be despawned
 ## When the spectator reaches the position, ready_to_despawn is emitted

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c757dhd4hepca"]
+[gd_scene load_steps=5 format=3 uid="uid://c757dhd4hepca"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_pobeb"]
+[ext_resource type="PackedScene" uid="uid://diblmhw3qf4io" path="res://Hazard/spectators/speech.tscn" id="2_ewcjg"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_05lvi"]
 size = Vector2(20, 20)
@@ -20,5 +21,8 @@ shape = SubResource("CircleShape2D_kxrer")
 
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Speech" parent="." instance=ExtResource("2_ewcjg")]
+position = Vector2(12, -10)
 
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_end"]

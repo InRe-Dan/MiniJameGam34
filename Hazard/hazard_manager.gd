@@ -23,7 +23,10 @@ var frequency_modifier : float = 1.0
 var time_since_last_hazard : float = 0
 
 func recalculate_frequency() -> void:
-	hazard_frequency = 10 * (1 - main.satisfaction) + 3
+	if main.satisfaction > 0.9:
+		hazard_frequency = 0
+	else:
+		hazard_frequency = 10 * (1 - main.satisfaction) + 3
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,7 +39,7 @@ func _ready() -> void:
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time_since_last_hazard += delta
-	if time_since_last_hazard > 1 / (hazard_frequency * frequency_modifier):
+	if hazard_frequency and time_since_last_hazard > 1 / (hazard_frequency * frequency_modifier):
 		spawn_hazard(get_hazard())
 
 

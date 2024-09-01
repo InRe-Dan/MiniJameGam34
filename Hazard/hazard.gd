@@ -4,6 +4,7 @@ extends Area2D
 
 signal spawn_lingering(hazard)
 signal create_status(status)
+signal hit_player(hazard : Hazard)
 
 @export var speed: float
 @export var force: float
@@ -45,6 +46,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if lingering: direction = body.position.direction_to(position)
 	(body as Player).hit(direction * force * 200, satisfaction, hitstun)
+	hit_player.emit(self)
 	if lingering_spawn:
 		var hazard: Hazard = lingering_spawn.instantiate()
 		hazard.position = position

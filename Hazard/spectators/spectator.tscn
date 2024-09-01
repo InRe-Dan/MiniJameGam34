@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bllvgnlk03rvh"]
+[gd_scene load_steps=15 format=3 uid="uid://bllvgnlk03rvh"]
 
 [ext_resource type="Script" path="res://Hazard/spectators/spectator.gd" id="1_6wfni"]
 [ext_resource type="Texture2D" uid="uid://bluedw7troaw8" path="res://Assets/Pixel_art/guyDemo.png" id="2_0b4by"]
 [ext_resource type="Shader" path="res://Hazard/spectators/spectator.gdshader" id="2_sxp2u"]
+[ext_resource type="PackedScene" uid="uid://diblmhw3qf4io" path="res://Hazard/spectators/speech.tscn" id="4_abpmd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7uuij"]
 radius = 12.0
@@ -108,5 +109,7 @@ offset_top = -6.0
 offset_right = 54.0
 offset_bottom = 7.0
 text = "aaaaaaaaa"
+
+[node name="Speech" parent="." instance=ExtResource("4_abpmd")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="release"]
