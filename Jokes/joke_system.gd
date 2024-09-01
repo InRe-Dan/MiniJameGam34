@@ -32,9 +32,13 @@ func _ready() -> void:
 	
 func make_player_say_punchline(joke : JokeResource) -> void:
 	get_tree().get_first_node_in_group("player").say("...", 2.)
-	get_tree().create_timer(2.).timeout.connect(func (): get_tree().get_first_node_in_group("player").say(joke.punchline, 2.0))
+	get_tree().create_timer(2.).timeout.connect(
+		func (): 
+		get_tree().get_first_node_in_group("player").say(joke.punchline, 2.0)
+		$Success.play()
+		)
+	$Punchline.play()
 
-	
 func joke_finished(joke : JokeResource) -> void:
 	self.joke = null
 	get_tree().create_timer(3).timeout.connect(new_joke)
@@ -52,3 +56,4 @@ func new_joke() -> void:
 		dialogue_container.set_joke(joke)
 		joke.success.connect(joke_finished)
 		joke.fail.connect(joke_finished)
+		joke.progress.connect($Progress.play)
