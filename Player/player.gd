@@ -14,7 +14,8 @@ signal got_hit
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 func _process(delta : float) -> void:
-	$Key.texture = get_tree().get_first_node_in_group("joke_system").get_key_texture()
+	$CanvasLayer/Key.global_position = global_position + Vector2(5, 40)
+	$CanvasLayer/Key.texture = get_tree().get_first_node_in_group("joke_system").get_key_texture()
 
 func _physics_process(delta: float) -> void:
 	velocity = velocity.lerp(get_input_vector() * movement_speed * speed_mod, delta * acceleration * pow(speed_mod, 2.0))

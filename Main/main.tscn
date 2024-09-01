@@ -1,5 +1,5 @@
+[gd_scene load_steps=29 format=3 uid="uid://dw5auj6i3fjfj"]
 
-[gd_scene load_steps=23 format=3 uid="uid://dw5auj6i3fjfj"]
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
 [ext_resource type="Texture2D" uid="uid://di2tdg70wmxu5" path="res://Assets/Pixel_art/Stage_192x80.png" id="2_sxipl"]
@@ -13,7 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://cgxuv7ek172to" path="res://Assets/Audio/sfx/hitclarinet.ogg" id="15_y86i5"]
 [ext_resource type="AudioStream" uid="uid://bl7ivclb6opf1" path="res://Assets/Audio/sfx/clickclown.ogg" id="16_5pxs3"]
 [ext_resource type="AudioStream" uid="uid://biwebv3emdh5r" path="res://Assets/Audio/sfx/textscrollclown.ogg" id="16_bfagw"]
-[ext_resource type="AudioStream" uid="uid://cklks1ptk2a4l" path="res://Assets/Audio/The Clown.mp3" id="19_ujp2a"]
 [ext_resource type="Script" path="res://Main/camera.gd" id="20_1uaoi"]
 
 [sub_resource type="Gradient" id="Gradient_4vja1"]
@@ -60,8 +59,8 @@ colors = PackedColorArray(0, 0.886275, 0, 1)
 gradient = SubResource("Gradient_wx4ct")
 
 [sub_resource type="Gradient" id="Gradient_qkjch"]
-offsets = PackedFloat32Array(0.103896, 1)
-colors = PackedColorArray(0.50682, 0.43366, 9.62615e-08, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.37, 0.37, 0.37, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xxwpp"]
 gradient = SubResource("Gradient_qkjch")
@@ -178,6 +177,7 @@ autoplay = true
 volume_db = -8.0
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 5
 
 [node name="Control" type="Control" parent="UI"]
 layout_mode = 3
@@ -284,12 +284,11 @@ position = Vector2(360, 270)
 script = ExtResource("20_1uaoi")
 
 [node name="Dark CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.20871, 0.20871, 0.20871, 1)
+color = Color(0.26, 0.26, 0.26, 1)
 
 [node name="Light" type="PointLight2D" parent="."]
 position = Vector2(378, 285)
 scale = Vector2(12.7813, 9.6875)
-energy = 2.37
 texture = SubResource("GradientTexture2D_xxwpp")
 
 [connection signal="satisfaction_changed" from="." to="HazardManager" method="_on_main_satisfaction_changed"]
