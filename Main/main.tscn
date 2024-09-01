@@ -274,6 +274,6 @@ autoplay = true
 [connection signal="satisfaction_changed" from="." to="HazardManager/Audience" method="_on_main_satisfaction_changed"]
 [connection signal="got_hit" from="Player" to="." method="_on_player_got_hit"]
 [connection signal="joke_failed" from="UI/JokeSystem" to="." method="_on_joke_system_joke_failed"]
-[connection signal="joke_failed" from="UI/JokeSystem" to="UI/JokeSystem/Failure" method="play"]
+[connection signal="joke_failed" from="UI/JokeSystem" to="UI/JokeSystem" method="_on_joke_failed"]
 [connection signal="joke_success" from="UI/JokeSystem" to="." method="_on_joke_system_joke_success"]
 [connection signal="value_changed" from="UI/VSlider" to="." method="_on_v_slider_value_changed"]
