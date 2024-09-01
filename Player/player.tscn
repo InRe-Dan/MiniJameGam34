@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c757dhd4hepca"]
+[gd_scene load_steps=13 format=3 uid="uid://c757dhd4hepca"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_pobeb"]
 [ext_resource type="Texture2D" uid="uid://cufifwyefdlic" path="res://Assets/Pixel_art/animations.png" id="2_71031"]
@@ -56,6 +56,16 @@ stream_0/stream = ExtResource("4_qwv1o")
 stream_1/stream = ExtResource("5_r7q75")
 stream_2/stream = ExtResource("6_gccwl")
 
+[sub_resource type="Gradient" id="Gradient_71mxe"]
+offsets = PackedFloat32Array(0.292208, 0.487013)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8mafe"]
+gradient = SubResource("Gradient_71mxe")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0174533
@@ -85,5 +95,12 @@ texture = SubResource("AtlasTexture_4fcb2")
 
 [node name="HitSounds" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_jh5ia")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2.86102e-06, 9.53674e-07)
+scale = Vector2(4, 4)
+energy = 1.16
+blend_mode = 2
+texture = SubResource("GradientTexture2D_8mafe")
 
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_end"]
