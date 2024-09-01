@@ -129,12 +129,12 @@ texture = SubResource("GradientTexture2D_ay0fj")
 
 [node name="Boo" type="AudioStreamPlayer" parent="HazardManager"]
 stream = ExtResource("16_5rr7d")
-volume_db = -1.5
+volume_db = -5.0
 pitch_scale = 0.86
 
 [node name="Laugh" type="AudioStreamPlayer" parent="HazardManager"]
 stream = ExtResource("7_mgrfu")
-volume_db = -1.5
+volume_db = -9.0
 pitch_scale = 0.82
 
 [node name="Collision" type="Node2D" parent="."]
