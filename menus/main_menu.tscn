@@ -21,15 +21,11 @@ script = ExtResource("1_78hgb")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 195.0
-offset_right = 231.0
-offset_bottom = 461.0
-
-[node name="Label" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"LabelHeader"
-text = "Title of Game"
+offset_left = 136.0
+offset_top = 72.0
+offset_right = 358.0
+offset_bottom = 261.0
+scale = Vector2(2, 2)
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -40,6 +36,11 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelHeader"
+text = "Title of Game"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2

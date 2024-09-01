@@ -9,15 +9,23 @@ extends Node2D
 @onready var approval_rating: TextureProgressBar = %ApprovalRating
 @onready var success_player: AudioStreamPlayer = $Audio/SuccessSound
 
+var game_over_scene : PackedScene = preload("res://menus/game_over.tscn")
+
 signal satisfaction_changed(new : float)
 
 var difficulty: float = 0.5
 var satisfaction : float = 1.0:
 	set(x):
+		if x < 0:
+			game_over()
 		satisfaction = clamp(x, 0, 1)
 		if approval_rating:
 			approval_rating.target = satisfaction
 		satisfaction_changed.emit(satisfaction)
+
+func game_over() -> void:
+	$UI.add_child(game_over_scene.instantiate())
+	process_mode = PROCESS_MODE_DISABLED
 
 func _process(delta : float) -> void:
 	satisfaction += delta * passive_satisfaction_increase * difficulty
