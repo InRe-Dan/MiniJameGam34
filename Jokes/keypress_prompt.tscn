@@ -44,12 +44,12 @@ custom_minimum_size = Vector2(128, 40)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1.0
-offset_bottom = -431.0
+offset_right = -592.0
+offset_bottom = -500.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g8flf")
-template = NodePath("MarginContainer/HBoxContainer/Template")
+template = NodePath("HBoxContainer/Template")
 down = SubResource("AtlasTexture_q3qbj")
 down_pressed = SubResource("AtlasTexture_k7msn")
 right = SubResource("AtlasTexture_qbm52")
@@ -58,22 +58,13 @@ up = SubResource("AtlasTexture_5fqlv")
 up_pressed = SubResource("AtlasTexture_7lrlt")
 left = SubResource("AtlasTexture_cmvsb")
 left_pressed = SubResource("AtlasTexture_k744b")
-joke_container = NodePath("MarginContainer/HBoxContainer")
+joke_container = NodePath("HBoxContainer")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Template" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="Template" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4

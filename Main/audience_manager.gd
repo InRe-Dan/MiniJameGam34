@@ -7,12 +7,31 @@ class_name AudienceManager extends Node2D
 
 @onready var spectator_scene: PackedScene = preload("res://Hazard/spectators/spectator.tscn")
 @onready var main : Main = get_tree().get_first_node_in_group("main")
+@onready var joke_system : JokeSystem = get_tree().get_first_node_in_group("joke_system")
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(calculate_target_audience_members(1.0)):
 		create_spectator()
+	joke_system.joke_failed.connect(joke_failed)
+	joke_system.joke_success.connect(joke_success)
 	
+func joke_failed() -> void:
+	var audience : Array = get_valid_children()
+	get_valid_children().shuffle()
+	var chance : float = 1.0
+	for spectator : Spectator in audience:
+		if randf() < chance:
+			chance *= 0.5
+			spectator.cheer()
+func joke_success() -> void:
+	var audience : Array = get_valid_children()
+	get_valid_children().shuffle()
+	var chance : float = 1.0
+	for spectator : Spectator in audience:
+		if randf() < chance:
+			chance *= 0.5
+			spectator.boo()
 
 func _process(delta : float) -> void:
 	if not debug_label:
@@ -52,13 +71,12 @@ func calculate_target_audience_members(satisfaction : float) -> int:
 	# Base of 5, scaling up to 50
 	return 5 + (1 - satisfaction) * 45
 
+func get_valid_children() -> Array:
+	return get_children().filter(func (c): return not c.called_back)
+
 # Count the number of children that aren't called back.
 func count_valid_children() -> int:
-	var counter : int = 0
-	for child : Spectator in get_children():
-		if !child.called_back:
-			counter += 1
-	return counter
+	return get_valid_children().size()
 	
 
 ## Change how many audience members there are by calling some back or spawning

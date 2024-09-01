@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://dce3kb4xu0ae8"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_l5o0f"]
+
+[resource]
+script = ExtResource("1_l5o0f")
+setup = "What genre are national anthems?"
+punchline = "Country!"

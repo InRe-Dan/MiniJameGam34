@@ -9,7 +9,8 @@ radius = 7.0
 [node name="Puddle" instance=ExtResource("1_g0dmh")]
 z_index = -1
 force = 2.4
-hitstun = 1.6
+satisfaction = 0.005
+hitstun = 0.3
 lingering = true
 
 [node name="Sprite2D" parent="." index="0"]

@@ -14,25 +14,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qr6hl")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
-custom_minimum_size = Vector2(500, 50)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Setup" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Setup" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Here's where the joke is gonna be!"
 label_settings = SubResource("LabelSettings_tnk6f")
+horizontal_alignment = 1
 
-[node name="Punchline" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Punchline" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Here's where the punchline is gonna be!"
 label_settings = SubResource("LabelSettings_fclo0")

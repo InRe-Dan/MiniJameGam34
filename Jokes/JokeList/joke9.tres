@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://bjxl85ukw1sgc"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_xdjdb"]
+
+[resource]
+script = ExtResource("1_xdjdb")
+setup = "Which vegetable has the best kung fu?	"
+punchline = "Broc-lee!"

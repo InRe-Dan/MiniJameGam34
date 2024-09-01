@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://wbej8ek5ppwq"]
+[gd_scene load_steps=5 format=3 uid="uid://wbej8ek5ppwq"]
 
 [ext_resource type="Script" path="res://menus/main_menu.gd" id="1_78hgb"]
 [ext_resource type="Texture2D" uid="uid://bluedw7troaw8" path="res://Assets/Pixel_art/guyDemo.png" id="1_y415b"]
@@ -6,6 +6,8 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_iex4f"]
 atlas = ExtResource("1_y415b")
 region = Rect2(103, 2, 18, 30)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ny88f"]
 
 [node name="Main Menu" type="Control"]
 texture_filter = 1
@@ -19,15 +21,11 @@ script = ExtResource("1_78hgb")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 195.0
-offset_right = 231.0
-offset_bottom = 461.0
-
-[node name="Label" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"LabelHeader"
-text = "Title of Game"
+offset_left = 136.0
+offset_top = 72.0
+offset_right = 358.0
+offset_bottom = 261.0
+scale = Vector2(2, 2)
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -38,6 +36,11 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelHeader"
+text = "Title of Game"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -51,7 +54,7 @@ custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
-text = "Start"
+text = "Night 1"
 
 [node name="Night2" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer"]
 unique_name_in_owner = true
@@ -69,7 +72,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
 disabled = true
-text = "Night 2"
+text = "Night 3"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -88,10 +91,13 @@ flip_h = true
 layout_mode = 2
 
 [node name="Guide" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
+toggle_mode = true
+button_pressed = true
 text = "How To Play
 "
 
@@ -114,7 +120,9 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 50.0
+max_value = 1.0
+step = 0.0
+value = 1.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -135,12 +143,103 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 50.0
+max_value = 1.0
+step = 0.0
+value = 1.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ny88f")
+text = "Fullscreen
+"
+
+[node name="1x" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_ny88f")
+text = "1x"
+
+[node name="2x" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ny88f")
+text = "2x"
+
+[node name="3x" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ny88f")
+text = "3x"
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "<--- Recommended! --"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 335.0
+offset_top = 279.0
+offset_right = 569.0
+offset_bottom = 394.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "You've been hired to entertain tonight's guests, but your comedy skills are rock bottom!
+
+Make your money by telling terrible jokes with the Arrow Keys! Each joke brings customer satisfaction down and tomato sales up!
+
+Avoid the crowd's violent reactions with WASD and try to bring their satisfaction all the way down each night.
+
+Some items have beneficial effects! The clock will slow down time and allow you to deliver your joke without fear of being hit."
+autowrap_mode = 2
 
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Night2" to="." method="_on_night_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Night3" to="." method="_on_night_3_pressed"]
+[connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/Guide" to="." method="_on_guide_toggled"]
 [connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer/Volume" to="." method="_on_volume_toggled"]
 [connection signal="changed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer/Volumeslider" to="." method="_on_volumeslider_changed"]
 [connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer2/Screenshake" to="." method="_on_screenshake_toggled"]
 [connection signal="changed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer2/Screenslider" to="." method="_on_screenslider_changed"]
+[connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4/1x" to="." method="_on_1x_toggled"]
+[connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4/2x" to="." method="_on_2x_toggled"]
+[connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4/3x" to="." method="_on_3x_toggled"]

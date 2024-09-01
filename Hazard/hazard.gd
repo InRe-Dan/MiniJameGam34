@@ -4,6 +4,7 @@ extends Area2D
 
 signal spawn_lingering(hazard)
 signal create_status(status)
+signal hit_player(hazard : Hazard)
 
 @export var speed: float
 @export var force: float
@@ -16,11 +17,18 @@ signal create_status(status)
 var collided: bool = false
 var velocity: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
+var target : Vector2
 
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	direction = position.direction_to(get_tree().get_first_node_in_group("main").scene_center.global_position)
+	var scene_center : Marker2D = get_tree().get_first_node_in_group("main").scene_center
+	if randf() < Globals.hazard_accuracy:
+		target = get_tree().get_first_node_in_group("player").global_position
+	else:
+		target.y = scene_center.global_position.y
+		target.x = scene_center.global_position.x + randf_range(-1, 1) * scene_center.gizmo_extents
+	direction = position.direction_to(target).rotated(randf_range(-0.5, 0.5) * deg_to_rad(Globals.accuracy_cone_angle))
 	velocity = direction * speed
 	rotation = randf() * 2 * PI
 
@@ -30,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	var mod: float = 1.0
 	if Globals.time_slowed: mod = 0.25
 	position += velocity * delta * mod
-	rotation += (speed * mod) / 2000
+	rotation += (speed * mod) / 4000
 
 
 ## Collided with player
@@ -41,6 +49,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if lingering: direction = body.position.direction_to(position)
 	(body as Player).hit(direction * force * 200, satisfaction, hitstun)
+	hit_player.emit(self)
 	if lingering_spawn:
 		var hazard: Hazard = lingering_spawn.instantiate()
 		hazard.position = position

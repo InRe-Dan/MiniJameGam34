@@ -17,7 +17,6 @@ var joke : JokeResource
 var current_index = 0
 
 func initialize(joke : JokeResource) -> void:
-	$Panel.modulate = Color.WHITE
 	self.joke = joke
 	joke.success.connect(finish)
 	joke.fail.connect(fail)
@@ -29,10 +28,10 @@ func reset() -> void:
 		joke_container.remove_child(child)
 	for keypress : JokeResource.Keypress in joke.sequence:
 		add(keypress)
-	#joke_container.get_children().front().modulate = Color.WHITE
+	joke_container.get_children().front().modulate = Color.WHITE
 	current_index = 0
 	
-func progress() -> void:
+func progress(joke : JokeResource) -> void:
 	var current : TextureRect = joke_container.get_children()[current_index]
 	if current.texture == left:
 		current.texture = left_pressed
@@ -46,11 +45,15 @@ func progress() -> void:
 	if current_index < joke_container.get_child_count():
 		joke_container.get_children()[current_index].modulate = Color.WHITE
 
-func finish() -> void:
-	$Panel.modulate = Color.LAWN_GREEN
+func finish(joke : JokeResource) -> void:
+	pass
+func fail(joke : JokeResource) -> void:
+	pass
 
-func fail() -> void:
-	$Panel.modulate = Color.RED
+func get_key_texture() -> Texture2D:
+	if current_index < joke_container.get_child_count():
+		return joke_container.get_children()[current_index].texture
+	else: return null
 
 func add(keypress : JokeResource.Keypress) -> void:
 	var new : TextureRect = template.duplicate()
@@ -63,4 +66,5 @@ func add(keypress : JokeResource.Keypress) -> void:
 		new.texture = up
 	if keypress.dir == JokeResource.Direction.DOWN:
 		new.texture = down
+	new.modulate = 0.3 * Color.TRANSPARENT + 0.7 * Color.WHITE
 	joke_container.add_child(new)

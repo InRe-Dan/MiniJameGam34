@@ -10,7 +10,7 @@ func _ready() -> void:
 	setup.text = ""
 	punchline.text = ""
 
-func progress() -> void:
+func progress(joke : JokeResource) -> void:
 	if not joke:
 		return
 	setup.text = ""
@@ -20,18 +20,18 @@ func progress() -> void:
 		setup.text += keypress.letters
 
 func set_joke(joke : JokeResource) -> void:
-	clear_joke()
+	clear_joke(null)
 	self.joke = joke
 	joke.fail.connect(clear_joke)
 	joke.success.connect(success)
 	joke.progress.connect(progress)
 	
-func success() -> void:
-	punchline.text = joke.punchline
+func success(joke : JokeResource) -> void:
+	# punchline.text = joke.punchline
 	setup.label_settings.font_color = Color.LAWN_GREEN
 	punchline.label_settings.font_color = Color.LAWN_GREEN
 	
-func clear_joke() -> void:
+func clear_joke(joke : JokeResource) -> void:
 	joke = null
 	setup.text = ""
 	punchline.text = ""

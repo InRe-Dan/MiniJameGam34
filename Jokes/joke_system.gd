@@ -2,6 +2,7 @@ class_name JokeSystem extends Node
 
 var jokes : Array[JokeResource]
 var joke : JokeResource
+var prompt : KeypressPrompt
 @export var keypress_prompt_container : CenterContainer
 @export var dialogue_container : DialogueContainer
 
@@ -20,17 +21,22 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("qte_up"):
 		joke.give_input(JokeResource.Direction.UP)
 
+func get_key_texture() -> Texture2D:
+	return prompt.get_key_texture()
 
 func _ready() -> void:
-	Globals.joke_system = self
 	var dir : DirAccess = DirAccess.open("res://Jokes/JokeList/")
 	for filename : String in dir.get_files():
 		jokes.append(load("res://Jokes/JokeList/" + filename))
 	new_joke()
 	
+func make_player_say_punchline(joke : JokeResource) -> void:
+	get_tree().get_first_node_in_group("player").say("...", 2.)
+	get_tree().create_timer(2.).timeout.connect(func (): get_tree().get_first_node_in_group("player").say(joke.punchline, 2.0))
+
 	
-func joke_finished() -> void:
-	joke = null
+func joke_finished(joke : JokeResource) -> void:
+	self.joke = null
 	get_tree().create_timer(3).timeout.connect(new_joke)
 
 func new_joke() -> void:
@@ -38,9 +44,11 @@ func new_joke() -> void:
 		joke = jokes.pick_random().duplicate()
 		for child in keypress_prompt_container.get_children():
 			keypress_prompt_container.remove_child(child)
-		keypress_prompt_container.add_child(joke.make_prompt())
-		joke.success.connect(joke_finished)
-		joke.success.connect(func (): joke_success.emit())
-		joke.fail.connect(joke_finished)
-		joke.fail.connect(func (): joke_failed.emit())
+		prompt = joke.make_prompt()
+		keypress_prompt_container.add_child(prompt)
+		joke.success.connect(make_player_say_punchline)
+		joke.success.connect(func (x): joke_success.emit())
+		joke.fail.connect(func (x): joke_failed.emit())
 		dialogue_container.set_joke(joke)
+		joke.success.connect(joke_finished)
+		joke.fail.connect(joke_finished)
