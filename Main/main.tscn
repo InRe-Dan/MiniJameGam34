@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=36 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -67,6 +67,16 @@ colors = PackedColorArray(0, 0.886275, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_iaam5"]
 gradient = SubResource("Gradient_wx4ct")
+
+[sub_resource type="Gradient" id="Gradient_qkjch"]
+offsets = PackedFloat32Array(0.103896, 1)
+colors = PackedColorArray(0.50682, 0.43366, 9.62615e-08, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xxwpp"]
+gradient = SubResource("Gradient_qkjch")
+fill = 1
+fill_from = Vector2(0.513761, 0.825688)
+fill_to = Vector2(0.899083, 0.266055)
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("scene_center") groups=["main"]]
 texture_filter = 1
@@ -276,6 +286,15 @@ position = Vector2(360, 270)
 
 [node name="Camera2D" type="Camera2D" parent="Anchor" groups=["camera"]]
 script = ExtResource("20_1uaoi")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.20871, 0.20871, 0.20871, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(378, 285)
+scale = Vector2(12.7813, 9.6875)
+energy = 2.37
+texture = SubResource("GradientTexture2D_xxwpp")
 
 [connection signal="satisfaction_changed" from="." to="HazardManager" method="_on_main_satisfaction_changed"]
 [connection signal="satisfaction_changed" from="." to="HazardManager/Audience" method="_on_main_satisfaction_changed"]
