@@ -36,7 +36,6 @@ func _ready() -> void:
 func make_player_say_punchline(joke : JokeResource) -> void:
 	Globals.jokes_told += 1
 	
-	get_tree().get_first_node_in_group("player").say("...", 2.)
 	get_tree().create_timer(2.).timeout.connect(
 		func (): 
 		get_tree().get_first_node_in_group("player").say(joke.punchline, 2.0)

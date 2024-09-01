@@ -324,11 +324,11 @@ autowrap_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 435.0
-offset_top = 243.0
-offset_right = 475.0
-offset_bottom = 283.0
-rotation = -1.5708
+offset_left = 426.0
+offset_top = 282.0
+offset_right = 466.0
+offset_bottom = 322.0
+rotation = -0.785398
 texture = SubResource("AtlasTexture_4lwym")
 
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Start" to="." method="_on_start_pressed"]
