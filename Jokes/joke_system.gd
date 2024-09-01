@@ -9,6 +9,10 @@ var prompt : KeypressPrompt
 signal joke_success
 signal joke_failed
 
+@onready var panel: Panel = $MarginContainer/Panel
+@onready var strikeout: ColorRect = $MarginContainer/VBoxContainer/PromptContainer/Strikeout
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not joke or joke.terminated:
 		return
@@ -47,16 +51,26 @@ func new_joke() -> void:
 	if not joke:
 		joke = jokes.pick_random().duplicate()
 		for child in keypress_prompt_container.get_children():
+			if child == strikeout: continue
 			keypress_prompt_container.remove_child(child)
 		prompt = joke.make_prompt()
 		keypress_prompt_container.add_child(prompt)
+		panel.self_modulate = Color.WHITE
+		strikeout.visible = false
 		joke.success.connect(make_player_say_punchline)
 		joke.success.connect(func (x): joke_success.emit())
-		joke.fail.connect(func (x): joke_failed.emit())
+		joke.fail.connect(_on_joke_failed)
 		dialogue_container.set_joke(joke)
 		joke.success.connect(joke_finished)
 		joke.fail.connect(joke_finished)
 		joke.progress.connect(play_progress_audio)
+
+
+## Joke failed
+func _on_joke_failed(throwout) -> void:
+	joke_failed.emit()
+	panel.self_modulate = Color.RED
+	strikeout.visible = true
 
 
 func play_progress_audio(throwout) -> void:
