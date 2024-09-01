@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://6mk0g0nabltd"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_xs4vw"]
+
+[resource]
+script = ExtResource("1_xs4vw")
+setup = "What kind of music do windmills like?"
+punchline = "They're big metal fans!"

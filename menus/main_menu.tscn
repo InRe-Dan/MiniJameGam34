@@ -57,13 +57,15 @@ offset_bottom = 540.0
 texture = SubResource("GradientTexture2D_knwjc")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(363, 564)
-amount = 30
+position = Vector2(361, 628)
+amount = 60
 lifetime = 5.0
 lifetime_randomness = 0.71
 texture = SubResource("AtlasTexture_oq2ji")
+emission_shape = 3
+emission_rect_extents = Vector2(200, 1)
 direction = Vector2(0, -1)
-initial_velocity_min = 400.0
+initial_velocity_min = 800.0
 initial_velocity_max = 1500.0
 angular_velocity_min = -112.0
 angular_velocity_max = 224.0

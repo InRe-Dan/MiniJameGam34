@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://mw46kjljfg7j"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_rfiu0"]
+
+[resource]
+script = ExtResource("1_rfiu0")
+setup = "What do hillbillies drink from?"
+punchline = "Hiccups!"

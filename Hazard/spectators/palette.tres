@@ -1,23 +1,28 @@
-[gd_resource type="Resource" script_class="ColorPalette" load_steps=6 format=3 uid="uid://867re7606t16"]
+[gd_resource type="Resource" script_class="ColorPalette" load_steps=7 format=3 uid="uid://867re7606t16"]
 
 [ext_resource type="Script" path="res://Hazard/spectators/color.gd" id="1_eott7"]
 [ext_resource type="Script" path="res://Hazard/spectators/colors.gd" id="1_i0cno"]
 
 [sub_resource type="Resource" id="Resource_uiewn"]
 script = ExtResource("1_eott7")
-main = Color(0.635294, 0, 0, 1)
-accent = Color(0.458824, 0, 0, 1)
+main = Color(0.31, 0.30194, 0.1488, 1)
+accent = Color(0.1, 0.0974, 0.048, 1)
 
 [sub_resource type="Resource" id="Resource_atdum"]
 script = ExtResource("1_eott7")
-main = Color(0, 0, 0.537255, 1)
-accent = Color(0, 0, 0.239216, 1)
+main = Color(0.37, 0.2257, 0.2257, 1)
+accent = Color(0.16, 0.0992, 0.0992, 1)
 
 [sub_resource type="Resource" id="Resource_armws"]
 script = ExtResource("1_eott7")
-main = Color(1, 0.556863, 0, 1)
-accent = Color(0.67451, 0.337255, 0, 1)
+main = Color(0.38, 0.27911, 0.1558, 1)
+accent = Color(0.17, 0.11475, 0.0595, 1)
+
+[sub_resource type="Resource" id="Resource_k4h0m"]
+script = ExtResource("1_eott7")
+main = Color(0.39, 0.1716, 0.23712, 1)
+accent = Color(0.1, 0.044, 0.0598667, 1)
 
 [resource]
 script = ExtResource("1_i0cno")
-palette = Array[ExtResource("1_eott7")]([SubResource("Resource_uiewn"), SubResource("Resource_atdum"), SubResource("Resource_armws")])
+palette = Array[ExtResource("1_eott7")]([SubResource("Resource_uiewn"), SubResource("Resource_atdum"), SubResource("Resource_armws"), SubResource("Resource_k4h0m")])

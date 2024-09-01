@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://bkyngg2r2a421"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_yve0x"]
+
+[resource]
+script = ExtResource("1_yve0x")
+setup = "Whats green and sings?"
+punchline = "Elivs Parsley!"

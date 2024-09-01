@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://crd2b4cm0qv01"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_7oi0k"]
+
+[resource]
+script = ExtResource("1_7oi0k")
+setup = "Why did the invisible man turn down a job offer?"
+punchline = "He couldn't see himself doing it!"
