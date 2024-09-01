@@ -192,37 +192,31 @@ script = ExtResource("7_id6l1")
 
 [node name="JokeSystem" type="Node" parent="." node_paths=PackedStringArray("keypress_prompt_container", "dialogue_container")]
 script = ExtResource("3_wbmed")
-keypress_prompt_container = NodePath("PromptContainer")
-dialogue_container = NodePath("DialogueContainer")
+keypress_prompt_container = NodePath("CenterContainer/VBoxContainer/PromptContainer")
+dialogue_container = NodePath("CenterContainer/VBoxContainer/DialogueContainer")
 
-[node name="DialogueContainer" parent="JokeSystem" instance=ExtResource("8_mh3dp")]
-offset_left = -1.0
-offset_bottom = -384.0
+[node name="CenterContainer" type="MarginContainer" parent="JokeSystem"]
+offset_left = -5.0
+offset_top = 455.0
+offset_right = 725.0
+offset_bottom = 545.0
 
-[node name="PromptContainer" type="CenterContainer" parent="JokeSystem"]
+[node name="Panel" type="Panel" parent="JokeSystem/CenterContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JokeSystem/CenterContainer"]
+layout_mode = 2
+
+[node name="PromptContainer" type="CenterContainer" parent="JokeSystem/CenterContainer/VBoxContainer"]
 z_index = 10
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -249.0
-offset_top = -40.0
-offset_right = 251.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 0
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
 
-[node name="ColorRect" type="ColorRect" parent="JokeSystem"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -80.0
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0, 0, 0, 1)
+[node name="DialogueContainer" parent="JokeSystem/CenterContainer/VBoxContainer" instance=ExtResource("8_mh3dp")]
+layout_mode = 2
+size_flags_vertical = 0
 
 [node name="SpawnElevation" type="Marker2D" parent="."]
 position = Vector2(360, -49)

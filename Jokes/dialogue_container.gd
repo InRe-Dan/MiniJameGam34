@@ -27,7 +27,7 @@ func set_joke(joke : JokeResource) -> void:
 	joke.progress.connect(progress)
 	
 func success() -> void:
-	punchline.text = joke.punchline
+	# punchline.text = joke.punchline
 	setup.label_settings.font_color = Color.LAWN_GREEN
 	punchline.label_settings.font_color = Color.LAWN_GREEN
 	

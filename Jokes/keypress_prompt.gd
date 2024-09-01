@@ -17,7 +17,6 @@ var joke : JokeResource
 var current_index = 0
 
 func initialize(joke : JokeResource) -> void:
-	$Panel.modulate = Color.WHITE
 	self.joke = joke
 	joke.success.connect(finish)
 	joke.fail.connect(fail)
@@ -47,10 +46,9 @@ func progress() -> void:
 		joke_container.get_children()[current_index].modulate = Color.WHITE
 
 func finish() -> void:
-	$Panel.modulate = Color.LAWN_GREEN
-
+	pass
 func fail() -> void:
-	$Panel.modulate = Color.RED
+	pass
 
 func add(keypress : JokeResource.Keypress) -> void:
 	var new : TextureRect = template.duplicate()

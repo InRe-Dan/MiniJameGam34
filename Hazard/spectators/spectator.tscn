@@ -98,7 +98,7 @@ material = SubResource("ShaderMaterial_7h6x2")
 sprite_frames = SubResource("SpriteFrames_n1hrr")
 animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.0560436
+frame_progress = 0.630513
 
 [node name="Debug" type="Label" parent="."]
 visible = false
