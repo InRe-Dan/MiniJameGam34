@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="JokeResource" load_steps=2 format=3 uid="uid://r1x3wwgkjlct"]
+
+[ext_resource type="Script" path="res://Jokes/joke_resource.gd" id="1_h663v"]
+
+[resource]
+script = ExtResource("1_h663v")
+setup = "What do you call a fly with no wings?"
+punchline = "A walk!"
