@@ -33,7 +33,8 @@ func joke_success() -> void:
 		if randf() < chance:
 			chance *= 0.5
 			spectator.boo()
-
+			
+			
 func _process(delta : float) -> void:
 	if not debug_label:
 		return

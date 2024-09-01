@@ -140,6 +140,7 @@ func boo() -> void:
 func cheer() -> void:
 	get_tree().create_timer(randf() * 0.4).timeout.connect(func (): $Speech.say(cheer_lines.pick_random(), 1.7))
 	
+	
 ## Tells the spectator to go back to the spawn zone so that he can be despawned
 ## When the spectator reaches the position, ready_to_despawn is emitted
 func call_back(target_y : float) -> void:
