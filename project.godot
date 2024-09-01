@@ -53,6 +53,7 @@ folder_colors={
 main=""
 player=""
 joke_system=""
+camera=""
 
 [gui]
 

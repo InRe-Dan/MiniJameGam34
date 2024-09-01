@@ -28,8 +28,9 @@ func say(line : String, time : float):
 
 ## Hits the player with the hazard
 func hit(impulse: Vector2, satisfaction: float, hitstun: float) -> void:
-	if impulse.length() > 0:
+	if hitstun > 0 and satisfaction > 0:
 		speech.say("Ouch!")
+		get_tree().get_first_node_in_group("camera").shake(hitstun)
 	velocity += impulse
 	stun(hitstun)
 	got_hit.emit(satisfaction)

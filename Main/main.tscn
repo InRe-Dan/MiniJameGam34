@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=35 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://cajpe4nj7b66h" path="res://Assets/Audio/brass3.mp3" id="16_wsep6"]
 [ext_resource type="AudioStream" uid="uid://da7skyi3dl1yw" path="res://Assets/Audio/brass4..mp3" id="17_xqbg0"]
 [ext_resource type="AudioStream" uid="uid://ds5r3gvp308om" path="res://Assets/Audio/brass5.mp3" id="18_3nqah"]
+[ext_resource type="Script" path="res://Main/camera.gd" id="20_1uaoi"]
 
 [sub_resource type="Gradient" id="Gradient_4vja1"]
 offsets = PackedFloat32Array(0)
@@ -259,6 +260,12 @@ focus_mode = 0
 max_value = 1.0
 step = 0.0
 value = 1.0
+
+[node name="Anchor" type="Node2D" parent="."]
+position = Vector2(360, 270)
+
+[node name="Camera2D" type="Camera2D" parent="Anchor" groups=["camera"]]
+script = ExtResource("20_1uaoi")
 
 [connection signal="satisfaction_changed" from="." to="HazardManager" method="_on_main_satisfaction_changed"]
 [connection signal="satisfaction_changed" from="." to="HazardManager/Audience" method="_on_main_satisfaction_changed"]

@@ -7,7 +7,7 @@ const spectator_placement_max_attempts: int = 8
 var time_slowed: bool = false
 var level_reached = 3
 var current_level
-var screen_shake : float = 0
+var screen_shake : float = 1.0
 
 # Game difficulty parameters ====================================
 ## Number of QTE keypresses required per character in a joke
