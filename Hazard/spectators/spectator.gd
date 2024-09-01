@@ -135,10 +135,10 @@ func release() -> void:
 	hazard_deployed.emit(hazard)
 	
 func boo() -> void:
-	get_tree().create_timer(2.5 +randf() * 0.6).timeout.connect(func (): $Speech.say(boo_lines.pick_random(), 1.0))
+	get_tree().create_timer(2.5 +randf() * 0.6).timeout.connect(func (): $Speech.say(boo_lines.pick_random(), 1.7))
 	
 func cheer() -> void:
-	get_tree().create_timer(randf() * 0.4).timeout.connect(func (): $Speech.say(cheer_lines.pick_random(), 1.0))
+	get_tree().create_timer(randf() * 0.4).timeout.connect(func (): $Speech.say(cheer_lines.pick_random(), 1.7))
 	
 ## Tells the spectator to go back to the spawn zone so that he can be despawned
 ## When the spectator reaches the position, ready_to_despawn is emitted
