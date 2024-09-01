@@ -241,9 +241,27 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_6yyrn")
 expand_mode = 2
 
+[node name="PromptContainer" type="CenterContainer" parent="UI"]
+custom_minimum_size = Vector2(0, 50)
+offset_left = 20.0
+offset_top = 710.0
+offset_right = 700.0
+offset_bottom = 760.0
+size_flags_vertical = 0
+
+[node name="Strikeout" type="ColorRect" parent="UI/PromptContainer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 5
+custom_minimum_size = Vector2(600, 2)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 1.1
+
 [node name="JokeSystem" type="Node" parent="UI" node_paths=PackedStringArray("keypress_prompt_container", "dialogue_container") groups=["joke_system"]]
 script = ExtResource("3_wbmed")
-keypress_prompt_container = NodePath("MarginContainer/VBoxContainer/PromptContainer")
+keypress_prompt_container = NodePath("../PromptContainer")
 dialogue_container = NodePath("MarginContainer/VBoxContainer/DialogueContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/JokeSystem"]
@@ -261,21 +279,6 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/JokeSystem/MarginContainer"]
 layout_mode = 2
-
-[node name="PromptContainer" type="CenterContainer" parent="UI/JokeSystem/MarginContainer/VBoxContainer"]
-z_index = 10
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="Strikeout" type="ColorRect" parent="UI/JokeSystem/MarginContainer/VBoxContainer/PromptContainer"]
-visible = false
-z_index = 5
-custom_minimum_size = Vector2(600, 2)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-size_flags_stretch_ratio = 1.1
 
 [node name="DialogueContainer" parent="UI/JokeSystem/MarginContainer/VBoxContainer" instance=ExtResource("8_mh3dp")]
 layout_mode = 2
