@@ -94,6 +94,7 @@ hazards = Array[ExtResource("4_o1nxd")]([SubResource("Resource_wi5i0"), SubResou
 [node name="Hazards" type="Node2D" parent="HazardManager"]
 
 [node name="Audience" type="Node2D" parent="HazardManager" node_paths=PackedStringArray("spawn_y_level", "debug_label")]
+z_index = -12
 position = Vector2(0, -1)
 script = ExtResource("4_8158h")
 spawn_y_level = NodePath("../../SpawnElevation")
@@ -130,6 +131,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision/Stage"]
 position = Vector2(0, -40)
+scale = Vector2(1.1, 1.1)
 polygon = PackedVector2Array(-280, 0, 280, 0, 280, -130, 260, -160, 200, -195, 80, -225, -80, -225, -200, -195, -260, -160, -280, -130)
 
 [node name="SpectatorArea" type="StaticBody2D" parent="Collision"]

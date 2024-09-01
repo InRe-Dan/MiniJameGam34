@@ -21,6 +21,7 @@ var direction: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	direction = position.direction_to(get_tree().get_first_node_in_group("main").scene_center.global_position)
 	velocity = direction * speed
+	rotation = randf() * 2 * PI
 
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.

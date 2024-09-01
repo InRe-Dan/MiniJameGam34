@@ -13,6 +13,7 @@ hitstun = 1.6
 lingering = true
 
 [node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 1, 1, 0.784314)
 texture = ExtResource("2_rq7bg")
 
 [node name="CollisionShape2D" parent="." index="1"]
