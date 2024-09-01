@@ -24,6 +24,8 @@ var satisfaction : float = 1.0:
 
 
 func _ready() -> void:
+	Globals.time_slowed = false
+	Globals.ultra_instinct = false
 	Globals.time_played = 0.0
 	Globals.jokes_told = 0
 	Globals.laughs_got = 0

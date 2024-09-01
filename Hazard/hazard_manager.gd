@@ -30,15 +30,15 @@ func recalculate_frequency() -> int:
 			if main.satisfaction > 0.9:
 				return 0
 			else:
-				return 5 * (1 - main.satisfaction) + 0.3
+				return 4 * (1 - main.satisfaction) + 1
 		2:
-			# Reasonably difficulty
+			# Reasonably difficult
 			if main.satisfaction > 0.9:
 				return 0.5
 			else:
-				return 8 * (1 - main.satisfaction) + 1
+				return 6 * (1 - main.satisfaction) + 2
 		3:
-			return 15 * (1 - main.satisfaction) + 3
+			return 8 * (1 - main.satisfaction) + 3
 	assert(false)
 	return 0
 
