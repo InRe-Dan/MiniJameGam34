@@ -22,7 +22,7 @@
 
 [sub_resource type="Gradient" id="Gradient_4vja1"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
+colors = PackedColorArray(0.17, 0.0765, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_syp3o"]
 gradient = SubResource("Gradient_4vja1")
@@ -85,7 +85,7 @@ scale = Vector2(12.75, 9.84375)
 texture = SubResource("GradientTexture2D_syp3o")
 
 [node name="Stage" type="Sprite2D" parent="."]
-self_modulate = Color(0.75, 0.75, 0.75, 1)
+self_modulate = Color(0.46, 0.264117, 0.1242, 1)
 z_index = -10
 position = Vector2(361, 340)
 scale = Vector2(3, 3)
@@ -167,15 +167,15 @@ grow_vertical = 2
 
 [node name="ApprovalRating" type="TextureProgressBar" parent="Control"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(30, 100)
+custom_minimum_size = Vector2(30, 200)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 237.0
-offset_top = 298.0
-offset_right = 267.0
-offset_bottom = 400.0
+offset_left = 310.0
+offset_top = 249.0
+offset_right = 340.0
+offset_bottom = 449.0
 grow_horizontal = 2
 max_value = 1.0
 step = 0.0
@@ -234,11 +234,11 @@ offset_bottom = 209.0
 text = "Debug text"
 
 [node name="VSlider" type="VSlider" parent="."]
-custom_minimum_size = Vector2(0, 100)
-offset_left = 637.0
-offset_top = 300.0
-offset_right = 653.0
-offset_bottom = 400.0
+custom_minimum_size = Vector2(0, 200)
+offset_left = 684.0
+offset_top = 249.0
+offset_right = 700.0
+offset_bottom = 449.0
 focus_mode = 0
 max_value = 1.0
 step = 0.0

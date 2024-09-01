@@ -1,7 +1,6 @@
 extends Node2D
 ## Responsible for spawning hazards
 
-@export var base_spawn_frequency : float = 1.2
 @export var hazards: Array[HazardSpawnData]
 
 var hazardData: Array[HazardSpawnData] = []
@@ -22,18 +21,31 @@ var frequency_modifier : float = 1.0
 
 var time_since_last_hazard : float = 0
 
-func recalculate_frequency() -> void:
-	if main.satisfaction > 0.9:
-		hazard_frequency = 0
-	else:
-		hazard_frequency = 10 * (1 - main.satisfaction) + 3
+func recalculate_frequency() -> int:
+	match Globals.current_level:
+		1:
+			# Pretty easy tutorial level
+			if main.satisfaction > 0.9:
+				return 0
+			else:
+				return 5 * (1 - main.satisfaction) + 0.3
+		2:
+			# Reasonably difficulty
+			if main.satisfaction > 0.9:
+				return 0.5
+			else:
+				return 8 * (1 - main.satisfaction) + 1
+		3:
+			return 15 * (1 - main.satisfaction) + 3
+	assert(false)
+	return 0
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for data: HazardSpawnData in hazards:
 		hazardData.append(data)
 
-	recalculate_frequency()
+	hazard_frequency = recalculate_frequency()
 
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -90,4 +102,4 @@ func _on_effect_deleted(effect: Status) -> void:
 
 
 func _on_main_satisfaction_changed(new: float) -> void:
-	recalculate_frequency()
+	hazard_frequency = recalculate_frequency()
