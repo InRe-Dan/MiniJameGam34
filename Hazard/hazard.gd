@@ -66,7 +66,8 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_near_miss(body: Node2D) -> void:
 	if not body is Player or collided: return
 	
-	(body as Player).say("Close one!", 1.0)
+	Globals.near_misses += 1
+	#(body as Player).say("Close one!", 1.0)
 	(body as Player).activate_ultra_instinct()
 
 

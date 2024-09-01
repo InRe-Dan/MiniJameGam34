@@ -11,6 +11,12 @@ var current_level
 var screen_shake : float = 1.0
 var spawn_data: LevelSpawnData
 
+var time_played: float = 0.0
+var jokes_told: int = 0
+var laughs_got: int = 0
+var tomatos_sold: int = 0
+var near_misses: int = 0
+
 # Game difficulty parameters ====================================
 ## Number of QTE keypresses required per character in a joke
 var joke_difficulty : float

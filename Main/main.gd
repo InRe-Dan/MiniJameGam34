@@ -23,11 +23,21 @@ var satisfaction : float = 1.0:
 			approval_rating.target = satisfaction
 		satisfaction_changed.emit(satisfaction)
 
+
+func _ready() -> void:
+	Globals.time_played = 0.0
+	Globals.jokes_told = 0
+	Globals.laughs_got = 0
+	Globals.tomatos_sold = 0
+	Globals.near_misses = 0
+
+
 func game_over() -> void:
 	$UI.add_child(game_over_scene.instantiate())
 	process_mode = PROCESS_MODE_DISABLED
 
 func _process(delta : float) -> void:
+	Globals.time_played += delta
 	satisfaction += delta * passive_satisfaction_increase * difficulty
 
 func _on_joke_system_joke_failed() -> void:

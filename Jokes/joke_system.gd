@@ -35,6 +35,8 @@ func _ready() -> void:
 	new_joke()
 	
 func make_player_say_punchline(joke : JokeResource) -> void:
+	Globals.jokes_told += 1
+	
 	get_tree().get_first_node_in_group("player").say("...", 2.)
 	get_tree().create_timer(2.).timeout.connect(
 		func (): 
@@ -68,6 +70,7 @@ func new_joke() -> void:
 
 ## Joke failed
 func _on_joke_failed(throwout) -> void:
+	Globals.laughs_got += 1
 	joke_failed.emit()
 	panel.self_modulate = Color.RED
 	strikeout.visible = true

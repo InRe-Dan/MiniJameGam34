@@ -74,7 +74,9 @@ func spawn_hazard(hazard: Hazard) -> void:
 
 ## Returns a random hazard
 func get_hazard() -> Hazard:
-	return (hazardData.pick_random() as HazardSpawnData).hazard.instantiate()
+	var hazard: Hazard = (hazardData.pick_random() as HazardSpawnData).hazard.instantiate()
+	if hazard.name == "Tomato": Globals.tomatos_sold += 1
+	return hazard
 	
 
 ## Hazard deployed by spectator

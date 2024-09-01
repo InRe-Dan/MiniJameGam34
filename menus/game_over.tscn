@@ -52,10 +52,60 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/Menu/VBox/Stats"]
+[node name="TimeStat" type="RichTextLabel" parent="CenterContainer/MarginContainer/Menu/VBox/Stats"]
+unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
-text = "Stats here, at some point."
-horizontal_alignment = 1
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Time: [color=yellow]0[/color][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="JokesStat" type="RichTextLabel" parent="CenterContainer/MarginContainer/Menu/VBox/Stats"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Jokes told: [color=green]0[/color][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="LaughsStat" type="RichTextLabel" parent="CenterContainer/MarginContainer/Menu/VBox/Stats"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Laughs received: [color=orange]0[/color][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TomatosStat" type="RichTextLabel" parent="CenterContainer/MarginContainer/Menu/VBox/Stats"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Tomatos sold: [color=red]0[/color][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="NearMissStat" type="RichTextLabel" parent="CenterContainer/MarginContainer/Menu/VBox/Stats"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Near misses: [color=gray]0[/color][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="Buttons" type="HBoxContainer" parent="CenterContainer/MarginContainer/Menu/VBox"]
 layout_mode = 2
