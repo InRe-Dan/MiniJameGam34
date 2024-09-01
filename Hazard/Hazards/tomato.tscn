@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bko632gtiaj3s"]
+[gd_scene load_steps=5 format=3 uid="uid://bko632gtiaj3s"]
 
 [ext_resource type="PackedScene" uid="uid://bcudix53js4vw" path="res://Hazard/hazard.tscn" id="1_n2gfx"]
 [ext_resource type="Texture2D" uid="uid://mnswvw4wp0eg" path="res://Assets/Pixel_art/Tomato_sheet.png" id="2_laftd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_svugl"]
 radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c4xy8"]
+radius = 11.0
 
 [node name="Tomato" instance=ExtResource("1_n2gfx")]
 speed = 215.0
@@ -19,3 +22,6 @@ frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_svugl")
+
+[node name="CloseCall" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_c4xy8")

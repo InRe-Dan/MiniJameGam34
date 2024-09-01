@@ -7,6 +7,7 @@ extends Node2D
 
 @onready var approval_rating: TextureProgressBar = %ApprovalRating
 @onready var success_player: AudioStreamPlayer = $Audio/SuccessSound
+@onready var hazard_manager
 
 var game_over_scene : PackedScene = preload("res://menus/game_over.tscn")
 

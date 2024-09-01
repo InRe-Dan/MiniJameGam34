@@ -14,6 +14,7 @@ signal hit_player(hazard : Hazard)
 @export var lingering: bool
 @export var status_effect: PackedScene
 
+var collided: bool = false
 var velocity: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
 var target : Vector2
@@ -42,7 +43,9 @@ func _physics_process(delta: float) -> void:
 
 ## Collided with player
 func _on_body_entered(body: Node2D) -> void:
-	if not body is Player: return
+	if not body is Player or collided: return
+	
+	collided = true
 	
 	if lingering: direction = body.position.direction_to(position)
 	(body as Player).hit(direction * force * 200, satisfaction, hitstun)
@@ -55,6 +58,14 @@ func _on_body_entered(body: Node2D) -> void:
 		var effect: Status = status_effect.instantiate()
 		create_status.emit(effect)
 	if not lingering: queue_free()
+
+
+## Nearly missed player
+func _on_near_miss(body: Node2D) -> void:
+	if not body is Player or collided: return
+	
+	(body as Player).say("Close one!", 1.0)
+
 
 ## Lifetime ended (bruh)
 func _on_lifetime_timeout() -> void:
