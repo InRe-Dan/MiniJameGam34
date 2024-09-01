@@ -9,6 +9,7 @@ var hazardData: Array[HazardSpawnData] = []
 @onready var audience: Node2D = $Audience
 @onready var effects_container: Node2D = $Effects
 @onready var main : Main = get_tree().get_first_node_in_group("main")
+@onready var slow_effect: Sprite2D = $StatusEffect
 
 var effects: Array[Status] = []
 
@@ -84,6 +85,7 @@ func _on_effect_created(effect: Status) -> void:
 	effect.ended.connect(_on_effect_deleted, ConnectFlags.CONNECT_DEFERRED)
 	if effect is SlowTime:
 		Globals.time_slowed = true
+		slow_effect.visible = true
 
 
 ## Status effect delete
@@ -95,7 +97,9 @@ func _on_effect_deleted(effect: Status) -> void:
 			if e is SlowTime and not e == effect:
 				last_effect = false
 				break
-		if last_effect: Globals.time_slowed = false
+		if last_effect:
+			Globals.time_slowed = false
+			slow_effect.visible = false
 	
 	effects.remove_at(effects.find(effect))
 	effect.queue_free()

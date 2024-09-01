@@ -43,6 +43,17 @@ hazard = ExtResource("7_qpxy0")
 script = ExtResource("4_o1nxd")
 hazard = ExtResource("8_klmir")
 
+[sub_resource type="Gradient" id="Gradient_supxc"]
+offsets = PackedFloat32Array(0, 0.400631, 0.62776, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.201893, 0.201893, 0.201893, 0.201893, 0.125, 0.35625, 0.5, 0.152941, 0, 0.616667, 1, 0.392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ay0fj"]
+gradient = SubResource("Gradient_supxc")
+width = 720
+height = 540
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mip7o"]
 normal = Vector2(1, 0)
 
@@ -113,6 +124,11 @@ debug_label = NodePath("../../UI/DebugLabel")
 [node name="Effects" type="Node2D" parent="HazardManager"]
 visible = false
 
+[node name="StatusEffect" type="Sprite2D" parent="HazardManager"]
+visible = false
+position = Vector2(360, 270)
+texture = SubResource("GradientTexture2D_ay0fj")
+
 [node name="Collision" type="Node2D" parent="."]
 
 [node name="WorldBounds" type="StaticBody2D" parent="Collision"]
@@ -165,7 +181,7 @@ gizmo_extents = 240.0
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("16_ditl7")
+stream = ExtResource("11_i2owt")
 volume_db = -2.0
 autoplay = true
 
