@@ -74,6 +74,9 @@ script = ExtResource("1_5t87c")
 scene_center = NodePath("StageCenter")
 success_audio = Array[AudioStream]([ExtResource("14_32kh8"), ExtResource("15_iw7sy"), ExtResource("16_wsep6"), ExtResource("17_xqbg0"), ExtResource("18_3nqah")])
 
+[node name="DebugCamera" type="Camera2D" parent="."]
+position = Vector2(359, 104)
+
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -20
 position = Vector2(376, 283)

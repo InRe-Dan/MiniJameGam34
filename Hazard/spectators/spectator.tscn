@@ -64,7 +64,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"throw",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,4 +98,13 @@ material = SubResource("ShaderMaterial_7h6x2")
 sprite_frames = SubResource("SpriteFrames_n1hrr")
 animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.145617
+frame_progress = 0.419605
+
+[node name="Debug" type="Label" parent="."]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+offset_left = 14.0
+offset_top = -6.0
+offset_right = 54.0
+offset_bottom = 7.0
+text = "aaaaaaaaa"

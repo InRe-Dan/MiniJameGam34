@@ -12,6 +12,8 @@ var queue: Array[Hazard]
 var objective_position : Vector2
 var called_back : bool = false
 var reached_target : bool = false
+var time_spent_walking : float = 0
+var max_walk_time : float = 8.0
 
 func _ready() -> void:
 	sprite.material = sprite.material.duplicate()
@@ -21,6 +23,7 @@ func _ready() -> void:
 
 func set_new_objective() -> void:
 	if called_back: return
+	time_spent_walking = 0
 	# Reattempt a few times
 	for i in range(5):
 		eyesight.target_position = Vector2.from_angle(randf() * TAU) * 100
@@ -37,21 +40,32 @@ func set_new_objective() -> void:
 func check_position() -> void:
 	if reached_target:
 		return
-	if global_position.distance_squared_to(objective_position) < 100:
+	if global_position.distance_squared_to(objective_position) < 100 or time_spent_walking > max_walk_time:
 		reached_target = true
+		time_spent_walking = 0
 		if called_back:
 			queue_free()
 		get_tree().create_timer(0.5 + randf() * 0.7).timeout.connect(set_new_objective)
 		
 
 func _process(delta : float) -> void:
+	$Debug.text = ""
+	if called_back:
+		$Debug.text += "C"
+	if reached_target:
+		$Debug.text += " R"
+	$Debug.text += "\n" + str(time_spent_walking)
+
 	if not reached_target:
+		time_spent_walking += delta
 		velocity = global_position.direction_to(objective_position) * 50
 		if velocity.x > 0:
 			sprite.flip_h = false
 		else:
 			sprite.flip_h = true
 	else:
+		var player : Node2D = get_tree().get_first_node_in_group("player")
+		sprite.flip_h = true if global_position.direction_to(player.global_position).x < 0 else false
 		velocity = Vector2.ZERO
 	check_position()
 	move_and_slide()
@@ -81,3 +95,5 @@ func release() -> void:
 func call_back(target_y : float) -> void:
 	objective_position.y = target_y
 	called_back = true
+	reached_target = false
+	time_spent_walking = 0
