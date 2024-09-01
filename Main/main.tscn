@@ -214,7 +214,7 @@ gizmo_extents = 240.0
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("11_kk78x")
-volume_db = -2.0
+volume_db = -3.0
 autoplay = true
 
 [node name="SuccessSound" type="AudioStreamPlayer" parent="Audio"]

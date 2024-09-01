@@ -35,8 +35,8 @@ func _on_night_3_pressed() -> void:
 	Globals.setup_level_3()
 	get_tree().change_scene_to_file("res://Main/main.tscn")
 
-func _on_volumeslider_changed() -> void:
-	AudioServer.set_bus_volume_db(0, linear_to_db(vol_slider.value))
+func _on_volumeslider_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(0, linear_to_db(value))
 
 func _on_screenshake_toggled(toggled_on: bool) -> void:
 	screen_slider.visible = toggled_on

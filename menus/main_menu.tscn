@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://wbej8ek5ppwq"]
+[gd_scene load_steps=14 format=3 uid="uid://wbej8ek5ppwq"]
 
 [ext_resource type="Theme" uid="uid://hho5m4qd8ohe" path="res://Assets/theme/main.tres" id="1_3evos"]
 [ext_resource type="Script" path="res://menus/main_menu.gd" id="1_78hgb"]
 [ext_resource type="Texture2D" uid="uid://cufifwyefdlic" path="res://Assets/Pixel_art/animations.png" id="2_fwci1"]
 [ext_resource type="Texture2D" uid="uid://mnswvw4wp0eg" path="res://Assets/Pixel_art/Tomato_sheet.png" id="3_26i35"]
 [ext_resource type="Texture2D" uid="uid://drsi4wr4sm6qn" path="res://Assets/Pixel_art/Title.png" id="3_tputi"]
+[ext_resource type="AudioStream" uid="uid://cklks1ptk2a4l" path="res://Assets/Audio/The Clown.mp3" id="6_mxlej"]
 
 [sub_resource type="Gradient" id="Gradient_47jj2"]
 offsets = PackedFloat32Array(0, 0.0503597, 0.158273, 0.266187, 0.374101, 0.453237, 0.539568, 0.647482, 0.719424, 0.870504, 1)
@@ -293,12 +294,17 @@ offset_bottom = 322.0
 rotation = -0.785398
 texture = SubResource("AtlasTexture_4lwym")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mxlej")
+volume_db = -3.0
+autoplay = true
+
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Night2" to="." method="_on_night_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/VBoxContainer/Night3" to="." method="_on_night_3_pressed"]
 [connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/Guide" to="." method="_on_guide_toggled"]
 [connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer/Volume" to="." method="_on_volume_toggled"]
-[connection signal="changed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer/Volumeslider" to="." method="_on_volumeslider_changed"]
+[connection signal="value_changed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer/Volumeslider" to="." method="_on_volumeslider_changed"]
 [connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer2/Screenshake" to="." method="_on_screenshake_toggled"]
 [connection signal="changed" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer2/Screenslider" to="." method="_on_screenslider_changed"]
 [connection signal="toggled" from="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer4/Fullscreen" to="." method="_on_fullscreen_toggled"]
