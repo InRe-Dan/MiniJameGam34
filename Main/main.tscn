@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=32 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Hazard/hazard_manager.gd" id="3_lubpb"]
 [ext_resource type="Script" path="res://Jokes/joke_system.gd" id="3_wbmed"]
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
+[ext_resource type="AudioStream" uid="uid://c4cn3gkxnh8xa" path="res://Assets/Audio/general-chatter-in-bar-14816.mp3" id="7_8vygh"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
 [ext_resource type="Texture2D" uid="uid://b33du3u0dl4a3" path="res://Assets/Pixel_art/stars.png" id="8_od55v"]
@@ -182,6 +183,11 @@ autoplay = true
 
 [node name="SuccessSound" type="AudioStreamPlayer" parent="Audio"]
 volume_db = -8.0
+
+[node name="CrowdFX" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("7_8vygh")
+volume_db = -3.8
+autoplay = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 5
