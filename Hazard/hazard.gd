@@ -36,8 +36,10 @@ func _ready() -> void:
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	var mod: float = 1.0
+	var ultra_mod: float = 1.0
 	if Globals.time_slowed: mod = 0.25
-	position += velocity * delta * mod
+	if Globals.ultra_instinct: ultra_mod = 0.6
+	position += velocity * delta * mod * ultra_mod
 	rotation += (speed * mod) / 4000
 
 
@@ -65,6 +67,7 @@ func _on_near_miss(body: Node2D) -> void:
 	if not body is Player or collided: return
 	
 	(body as Player).say("Close one!", 1.0)
+	(body as Player).activate_ultra_instinct()
 
 
 ## Lifetime ended (bruh)

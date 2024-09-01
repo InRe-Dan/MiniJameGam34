@@ -12,6 +12,7 @@ signal got_hit
 @onready var stun_timer: Timer = $StunTimer
 @onready var speech : Speech = $Speech
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var instinct_timer: Timer = $UltraInstinctDuration
 
 func _process(delta : float) -> void:
 	$CanvasLayer/Key.global_position = global_position + Vector2(5, 40)
@@ -67,3 +68,15 @@ func _on_stun_start() -> void:
 ## Stun period ended
 func _on_stun_end() -> void:
 	speed_mod = 1.0
+	
+
+## Activate ultra instinct
+func activate_ultra_instinct() -> void:
+	instinct_timer.stop()
+	Globals.ultra_instinct = true
+	instinct_timer.start()
+
+
+## Deactivate ultra instinct
+func deactivate_ultra_instinct() -> void:
+	Globals.ultra_instinct = false

@@ -5,6 +5,7 @@ const audience_padding: float = 16.0
 const spectator_placement_max_attempts: int = 8
 
 var time_slowed: bool = false
+var ultra_instinct: bool = false
 var level_reached = 3
 var current_level
 var screen_shake : float = 1.0

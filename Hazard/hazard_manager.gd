@@ -69,6 +69,7 @@ func spawn_hazard(hazard: Hazard) -> void:
 	# Between 0.6 and 1.4
 	frequency_modifier = 0.6 + randf() * 0.8
 	if Globals.time_slowed: frequency_modifier *= 0.25
+	if Globals.ultra_instinct: frequency_modifier *= 0.6
 
 
 ## Returns a random hazard
