@@ -1,15 +1,16 @@
-[gd_scene load_steps=36 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=37 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
+[ext_resource type="Texture2D" uid="uid://dqgbnoabrtk6k" path="res://Assets/Pixel_art/woodtile.png" id="2_kepf2"]
 [ext_resource type="Texture2D" uid="uid://di2tdg70wmxu5" path="res://Assets/Pixel_art/Stage_192x80.png" id="2_sxipl"]
 [ext_resource type="Script" path="res://Hazard/hazard_manager.gd" id="3_lubpb"]
 [ext_resource type="Script" path="res://Jokes/joke_system.gd" id="3_wbmed"]
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
 [ext_resource type="AudioStream" uid="uid://c4cn3gkxnh8xa" path="res://Assets/Audio/general-chatter-in-bar-14816.mp3" id="7_8vygh"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
-[ext_resource type="Script" path="res://Main/hint.gd" id="8_ahute"]
 [ext_resource type="AudioStream" uid="uid://d4c7p4xg7imib" path="res://Assets/Audio/sfx/laughingtrackevil2.ogg" id="7_mgrfu"]
+[ext_resource type="Script" path="res://Main/hint.gd" id="8_ahute"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
 [ext_resource type="Texture2D" uid="uid://b33du3u0dl4a3" path="res://Assets/Pixel_art/stars.png" id="8_od55v"]
 [ext_resource type="AudioStream" uid="uid://x22xmvix84cv" path="res://Assets/Audio/The Clownlessdrum.mp3" id="11_kk78x"]
@@ -19,13 +20,6 @@
 [ext_resource type="AudioStream" uid="uid://ciibciu1ex7lr" path="res://Assets/Audio/sfx/boobitcrushed.ogg" id="16_5rr7d"]
 [ext_resource type="AudioStream" uid="uid://biwebv3emdh5r" path="res://Assets/Audio/sfx/textscrollclown.ogg" id="16_bfagw"]
 [ext_resource type="Script" path="res://Main/camera.gd" id="20_1uaoi"]
-
-[sub_resource type="Gradient" id="Gradient_4vja1"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.17, 0.0765, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_syp3o"]
-gradient = SubResource("Gradient_4vja1")
 
 [sub_resource type="Gradient" id="Gradient_supxc"]
 offsets = PackedFloat32Array(0, 0.400631, 0.62776, 1)
@@ -108,12 +102,14 @@ enabled = false
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -20
+texture_repeat = 2
 position = Vector2(376, 283)
-scale = Vector2(12.75, 9.84375)
-texture = SubResource("GradientTexture2D_syp3o")
+texture = ExtResource("2_kepf2")
+region_enabled = true
+region_rect = Rect2(-1000, -1000, 2000, 2000)
 
 [node name="Stage" type="Sprite2D" parent="."]
-self_modulate = Color(0.46, 0.264117, 0.1242, 1)
+modulate = Color(0.31, 0.31, 0.31, 1)
 z_index = -10
 position = Vector2(361, 340)
 scale = Vector2(3, 3)
@@ -370,6 +366,7 @@ offset_bottom = 209.0
 text = "Debug text"
 
 [node name="VSlider" type="VSlider" parent="UI"]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 offset_left = 682.0
 offset_top = 246.0
