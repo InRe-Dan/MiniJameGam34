@@ -6,13 +6,13 @@ class_name Speech extends Node2D
 func _ready() -> void:
 	remove_child(template)
 
-func say(string : String) -> void:
+func say(string : String, time : float = 0.5) -> void:
 	var new : Label = template.duplicate()
 	new.text = string
-	get_tree().create_timer(0.5).timeout.connect(new.queue_free)
+	get_tree().create_timer(time).timeout.connect(new.queue_free)
 	new.global_position = global_position
 	add_child(new)
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	for child : Label in get_children():

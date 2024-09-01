@@ -31,7 +31,7 @@ func reset() -> void:
 	#joke_container.get_children().front().modulate = Color.WHITE
 	current_index = 0
 	
-func progress() -> void:
+func progress(joke : JokeResource) -> void:
 	var current : TextureRect = joke_container.get_children()[current_index]
 	if current.texture == left:
 		current.texture = left_pressed
@@ -45,9 +45,9 @@ func progress() -> void:
 	if current_index < joke_container.get_child_count():
 		joke_container.get_children()[current_index].modulate = Color.WHITE
 
-func finish() -> void:
+func finish(joke : JokeResource) -> void:
 	pass
-func fail() -> void:
+func fail(joke : JokeResource) -> void:
 	pass
 
 func add(keypress : JokeResource.Keypress) -> void:

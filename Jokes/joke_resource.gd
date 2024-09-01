@@ -11,9 +11,9 @@ enum Direction {UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3}
 @export_multiline var setup : String
 @export_multiline var punchline : String
 
-signal fail
-signal success
-signal progress
+signal fail(joke : JokeResource)
+signal success(joke : JokeResource)
+signal progress(joke : JokeResource)
 
 # True if the joke has succeeded or failed (i.e. no longer catching input)
 var terminated : bool = false
@@ -36,15 +36,15 @@ func give_input(dir : Direction) -> void:
 	assert(current)
 	if current.dir == dir:
 		current.complete = true
-		progress.emit()
+		progress.emit(self)
 		if current == sequence.back():
 			terminated = true
-			success.emit()
+			success.emit(self)
 	else:
 		for keypress : Keypress in sequence:
 			keypress.complete = false
 		terminated = true
-		fail.emit()
+		fail.emit(self)
 
 # Makes a control node linked to this one which can keep track of player inputs
 func make_prompt() -> KeypressPrompt:
