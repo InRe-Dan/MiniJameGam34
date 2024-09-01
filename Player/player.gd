@@ -26,6 +26,12 @@ func _physics_process(delta: float) -> void:
 		elif velocity.x < -1.0:
 			sprite.flip_h = true
 			sprite.play("walk")
+		elif velocity.y > 1.0:
+			sprite.flip_h = false
+			sprite.play("walk")
+		elif velocity.y < 1.0:
+			sprite.flip_h = true
+			sprite.play("walk")
 	else:
 		sprite.play("idle")
 
