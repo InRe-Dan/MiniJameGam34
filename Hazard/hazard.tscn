@@ -12,4 +12,9 @@ script = ExtResource("1_rvm33")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CloseCall" type="CollisionShape2D" parent="Area2D"]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_near_miss"]
