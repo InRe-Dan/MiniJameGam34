@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn6cudnyv88qp"]
+[gd_scene load_steps=5 format=3 uid="uid://cn6cudnyv88qp"]
 
 [ext_resource type="PackedScene" uid="uid://bcudix53js4vw" path="res://Hazard/hazard.tscn" id="1_tokcb"]
 [ext_resource type="Texture2D" uid="uid://8hqjqnjw3e8x" path="res://Assets/Pixel_art/stool.png" id="2_k36ew"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ff16"]
 radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vnsbw"]
+radius = 12.0
 
 [node name="Chair" instance=ExtResource("1_tokcb")]
 speed = 150.0
@@ -16,3 +19,6 @@ texture = ExtResource("2_k36ew")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_8ff16")
+
+[node name="CloseCall" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_vnsbw")

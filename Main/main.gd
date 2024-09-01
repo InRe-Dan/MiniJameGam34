@@ -8,6 +8,7 @@ extends Node2D
 
 @onready var approval_rating: TextureProgressBar = %ApprovalRating
 @onready var success_player: AudioStreamPlayer = $Audio/SuccessSound
+@onready var hazard_manager
 
 signal satisfaction_changed(new : float)
 

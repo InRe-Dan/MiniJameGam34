@@ -13,12 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://ca6r6ki04qi2t" path="res://Hazard/Hazards/soda.tscn" id="7_qpxy0"]
 [ext_resource type="PackedScene" uid="uid://dbm4gk525hsx1" path="res://Hazard/Powerups/clock.tscn" id="8_klmir"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
-[ext_resource type="AudioStream" uid="uid://cwhw5bdw1apxm" path="res://Assets/Audio/Red in the darkproto.mp3" id="13_udagc"]
-[ext_resource type="AudioStream" uid="uid://bm6y5rnf3u5es" path="res://Assets/Audio/brass1.mp3" id="14_32kh8"]
-[ext_resource type="AudioStream" uid="uid://bik4n3saccjs1" path="res://Assets/Audio/brass2.mp3" id="15_iw7sy"]
-[ext_resource type="AudioStream" uid="uid://cajpe4nj7b66h" path="res://Assets/Audio/brass3.mp3" id="16_wsep6"]
-[ext_resource type="AudioStream" uid="uid://da7skyi3dl1yw" path="res://Assets/Audio/brass4..mp3" id="17_xqbg0"]
-[ext_resource type="AudioStream" uid="uid://ds5r3gvp308om" path="res://Assets/Audio/brass5.mp3" id="18_3nqah"]
+[ext_resource type="AudioStream" uid="uid://cj876hufbggk2" path="res://Assets/Audio/The Clown.mp3" id="11_i2owt"]
+[ext_resource type="Script" path="res://Main/camera.gd" id="20_1uaoi"]
 
 [sub_resource type="Gradient" id="Gradient_4vja1"]
 offsets = PackedFloat32Array(0)
@@ -151,8 +147,27 @@ position = Vector2(0, -40)
 build_mode = 1
 polygon = PackedVector2Array(-280, 0, 280, 0, 280, -130, 260, -160, 200, -195, 80, -225, -80, -225, -200, -195, -260, -160, -280, -130)
 
-[node name="Control" type="Control" parent="."]
-visible = false
+[node name="SpawnElevation" type="Marker2D" parent="."]
+position = Vector2(360, -49)
+gizmo_extents = 350.0
+
+[node name="StageCenter" type="Marker2D" parent="."]
+position = Vector2(359, 481)
+gizmo_extents = 240.0
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="MainTheme" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11_i2owt")
+volume_db = -2.0
+autoplay = true
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="Audio"]
+volume_db = -8.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
