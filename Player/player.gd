@@ -11,17 +11,25 @@ signal got_hit
 
 @onready var stun_timer: Timer = $StunTimer
 @onready var speech : Speech = $Speech
-
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 func _process(delta : float) -> void:
 	$Key.texture = get_tree().get_first_node_in_group("joke_system").get_key_texture()
 
 func _physics_process(delta: float) -> void:
 	velocity = velocity.lerp(get_input_vector() * movement_speed * speed_mod, delta * acceleration * pow(speed_mod, 2.0))
-	
+	if velocity.length() > 10:
+		if velocity.x > 1.0:
+			sprite.flip_h = false
+			sprite.play("walk")
+		elif velocity.x < -1.0:
+			sprite.flip_h = true
+			sprite.play("walk")
+	else:
+		sprite.play("idle")
+
 	move_and_slide()
-	
-	
+
 ## Returns the player's input vector
 func get_input_vector() -> Vector2:
 	return Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down")).normalized()

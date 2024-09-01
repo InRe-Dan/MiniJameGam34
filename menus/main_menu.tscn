@@ -255,15 +255,32 @@ layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "ARROW KEYS to tell bad jokes!
+WASD to run away from thrown objects!
+Catch pocket watches to slow time!
+Bring down patron satisfaction!"
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 size_flags_vertical = 1
 text = "You've been hired to entertain tonight's guests, but your comedy skills are rock bottom!
 
-Make your money by telling terrible jokes with the Arrow Keys! Each joke brings customer satisfaction down and tomato sales up!
+Make your money by telling terrible jokes! Each joke brings customer satisfaction down and tomato sales up!
 
-Avoid the crowd's violent reactions with WASD and try to bring their satisfaction all the way down each night.
+Avoid the crowd's violent reactions and try to bring their satisfaction all the way down each night. More anger means more visits and more sales!
 
 Some items have beneficial effects! The clock will slow down time and allow you to deliver your joke without fear of being hit."
 autowrap_mode = 2

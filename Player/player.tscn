@@ -1,16 +1,50 @@
-[gd_scene load_steps=11 format=3 uid="uid://c757dhd4hepca"]
+[gd_scene load_steps=15 format=3 uid="uid://c757dhd4hepca"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_pobeb"]
+[ext_resource type="Texture2D" uid="uid://cufifwyefdlic" path="res://Assets/Pixel_art/animations.png" id="2_71031"]
 [ext_resource type="PackedScene" uid="uid://diblmhw3qf4io" path="res://Hazard/spectators/speech.tscn" id="2_ewcjg"]
 [ext_resource type="Texture2D" uid="uid://b0m87yexag708" path="res://Assets/keyboard_buttons.png" id="3_csl8f"]
 [ext_resource type="AudioStream" uid="uid://hylw10qhf5uo" path="res://Assets/Audio/sfx/hitsound1.ogg" id="4_qwv1o"]
 [ext_resource type="AudioStream" uid="uid://b4aml2kwhtaky" path="res://Assets/Audio/sfx/hitsound2.ogg" id="5_r7q75"]
 [ext_resource type="AudioStream" uid="uid://dg8gcgk8wtakq" path="res://Assets/Audio/sfx/hitsound3.ogg" id="6_gccwl"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_05lvi"]
-size = Vector2(20, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bqjr"]
+atlas = ExtResource("2_71031")
+region = Rect2(0, 0, 40, 40)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kxrer"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqmdp"]
+atlas = ExtResource("2_71031")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwubh"]
+atlas = ExtResource("2_71031")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_16lxd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bqjr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqmdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwubh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c07lx"]
+radius = 7.0
+height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fcb2"]
 atlas = ExtResource("3_csl8f")
@@ -27,11 +61,15 @@ motion_mode = 1
 wall_min_slide_angle = 0.0174533
 script = ExtResource("1_pobeb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_05lvi")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -3)
+sprite_frames = SubResource("SpriteFrames_16lxd")
+animation = &"walk"
+frame_progress = 0.489525
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_kxrer")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_c07lx")
 
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
