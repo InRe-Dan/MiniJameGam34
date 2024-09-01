@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Jokes/joke_system.gd" id="3_wbmed"]
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
 [ext_resource type="AudioStream" uid="uid://c4cn3gkxnh8xa" path="res://Assets/Audio/general-chatter-in-bar-14816.mp3" id="7_8vygh"]
+[ext_resource type="AudioStream" uid="uid://bppkh3pf4uckv" path="res://Assets/Audio/sfx/boofaded.mp3" id="7_d8rkq"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
 [ext_resource type="AudioStream" uid="uid://d4c7p4xg7imib" path="res://Assets/Audio/sfx/laughingtrackevil2.ogg" id="7_mgrfu"]
 [ext_resource type="Script" path="res://Main/hint.gd" id="8_ahute"]
@@ -17,7 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://uvkydh0y761" path="res://Assets/Audio/sfx/JokeSucesss.ogg" id="15_ruhv1"]
 [ext_resource type="AudioStream" uid="uid://cgxuv7ek172to" path="res://Assets/Audio/sfx/hitclarinet.ogg" id="15_y86i5"]
 [ext_resource type="AudioStream" uid="uid://bl7ivclb6opf1" path="res://Assets/Audio/sfx/clickclown.ogg" id="16_5pxs3"]
-[ext_resource type="AudioStream" uid="uid://ciibciu1ex7lr" path="res://Assets/Audio/sfx/boobitcrushed.ogg" id="16_5rr7d"]
 [ext_resource type="AudioStream" uid="uid://biwebv3emdh5r" path="res://Assets/Audio/sfx/textscrollclown.ogg" id="16_bfagw"]
 [ext_resource type="Script" path="res://Main/camera.gd" id="20_1uaoi"]
 
@@ -152,7 +152,7 @@ position = Vector2(360, 270)
 texture = SubResource("GradientTexture2D_ay0fj")
 
 [node name="Boo" type="AudioStreamPlayer" parent="HazardManager"]
-stream = ExtResource("16_5rr7d")
+stream = ExtResource("7_d8rkq")
 volume_db = -5.0
 pitch_scale = 0.86
 
