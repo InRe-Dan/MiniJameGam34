@@ -5,7 +5,7 @@ extends Node2D
 @export var scene_center : Marker2D
 @export var passive_satisfaction_increase = 0.01
 
-@onready var approval_rating: TextureProgressBar = %ApprovalRating
+@onready var approval_rating: HBoxContainer = %ApprovalRating
 @onready var success_player: AudioStreamPlayer = $Audio/SuccessSound
 @onready var hazard_manager
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dw5auj6i3fjfj"]
+[gd_scene load_steps=31 format=3 uid="uid://dw5auj6i3fjfj"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_5t87c"]
 [ext_resource type="PackedScene" uid="uid://c757dhd4hepca" path="res://Player/player.tscn" id="1_bg8e3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Main/audience_manager.gd" id="4_8158h"]
 [ext_resource type="Script" path="res://Main/approval_rating.gd" id="7_id6l1"]
 [ext_resource type="PackedScene" uid="uid://clt5oswt5gxrq" path="res://Jokes/dialogue_container.tscn" id="8_mh3dp"]
+[ext_resource type="Texture2D" uid="uid://b33du3u0dl4a3" path="res://Assets/Pixel_art/stars.png" id="8_od55v"]
 [ext_resource type="AudioStream" uid="uid://x22xmvix84cv" path="res://Assets/Audio/The Clownlessdrum.mp3" id="11_kk78x"]
 [ext_resource type="AudioStream" uid="uid://uvkydh0y761" path="res://Assets/Audio/sfx/JokeSucesss.ogg" id="15_ruhv1"]
 [ext_resource type="AudioStream" uid="uid://cgxuv7ek172to" path="res://Assets/Audio/sfx/hitclarinet.ogg" id="15_y86i5"]
@@ -44,19 +45,25 @@ normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ybwdi"]
 
-[sub_resource type="Gradient" id="Gradient_iqffe"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0.278431, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_37ogi"]
+atlas = ExtResource("8_od55v")
+region = Rect2(0, 0, 18, 18)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_r06y5"]
-gradient = SubResource("Gradient_iqffe")
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1m18"]
+atlas = ExtResource("8_od55v")
+region = Rect2(0, 0, 18, 18)
 
-[sub_resource type="Gradient" id="Gradient_wx4ct"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0.886275, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8kgp"]
+atlas = ExtResource("8_od55v")
+region = Rect2(0, 0, 18, 18)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_iaam5"]
-gradient = SubResource("Gradient_wx4ct")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra1rn"]
+atlas = ExtResource("8_od55v")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yyrn"]
+atlas = ExtResource("8_od55v")
+region = Rect2(0, 0, 18, 18)
 
 [sub_resource type="Gradient" id="Gradient_qkjch"]
 offsets = PackedFloat32Array(0)
@@ -189,30 +196,41 @@ offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ApprovalRating" type="TextureProgressBar" parent="UI/Control"]
+[node name="ApprovalRating" type="HBoxContainer" parent="UI/Control"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(30, 200)
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -52.0
-offset_top = 246.0
-offset_right = -22.0
-offset_bottom = 446.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -720.0
 grow_horizontal = 2
-max_value = 1.0
-step = 0.0
-value = 0.5
-fill_mode = 3
-nine_patch_stretch = true
-stretch_margin_left = 1
-stretch_margin_top = 1
-stretch_margin_right = 1
-stretch_margin_bottom = 1
-texture_under = SubResource("GradientTexture2D_r06y5")
-texture_progress = SubResource("GradientTexture2D_iaam5")
+alignment = 1
 script = ExtResource("7_id6l1")
+
+[node name="1" type="TextureRect" parent="UI/Control/ApprovalRating"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_37ogi")
+expand_mode = 2
+
+[node name="2" type="TextureRect" parent="UI/Control/ApprovalRating"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_e1m18")
+expand_mode = 2
+
+[node name="3" type="TextureRect" parent="UI/Control/ApprovalRating"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_i8kgp")
+expand_mode = 2
+
+[node name="4" type="TextureRect" parent="UI/Control/ApprovalRating"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ra1rn")
+expand_mode = 2
+
+[node name="5" type="TextureRect" parent="UI/Control/ApprovalRating"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_6yyrn")
+expand_mode = 2
 
 [node name="JokeSystem" type="Node" parent="UI" node_paths=PackedStringArray("keypress_prompt_container", "dialogue_container") groups=["joke_system"]]
 script = ExtResource("3_wbmed")
